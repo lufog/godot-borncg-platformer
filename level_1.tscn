@@ -9,7 +9,7 @@ size = Vector2(768, 64)
 [node name="Level1" type="Node2D"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(508, 525)
+position = Vector2(386, 566)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor"]
@@ -17,6 +17,17 @@ scale = Vector2(11.9688, 1)
 texture = ExtResource( "1_pxg2g" )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource( "RectangleShape2D_68bwy" )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(737, 395)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
+scale = Vector2(11.9688, 1)
+texture = ExtResource( "1_pxg2g" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
 shape = SubResource( "RectangleShape2D_68bwy" )
 
 [node name="Steve" parent="." instance=ExtResource( "2_no5gs" )]

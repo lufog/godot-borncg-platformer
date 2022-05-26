@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2fr5q4eockqd"]
+
+[ext_resource type="Script" path="res://steve.gd" id="1_cdp58"]
+[ext_resource type="Texture2D" uid="uid://co0xl0sp3faq3" path="res://assets/player/platformChar_idle.png" id="1_rwha3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oibr"]
+radius = 26.0
+height = 66.0
+
+[node name="Steve" type="CharacterBody2D"]
+script = ExtResource( "1_cdp58" )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource( "1_rwha3" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource( "CapsuleShape2D_5oibr" )

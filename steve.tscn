@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2fr5q4eockqd"]
 
 [ext_resource type="Script" path="res://steve.gd" id="1_cdp58"]
-[ext_resource type="Texture2D" uid="uid://co0xl0sp3faq3" path="res://assets/player/platformChar_idle.png" id="1_rwha3"]
+[ext_resource type="SpriteFrames" uid="uid://rctfp2sa4hpb" path="res://steve_spriteframes.tres" id="2_015vo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oibr"]
 radius = 26.0
@@ -10,8 +10,9 @@ height = 66.0
 [node name="Steve" type="CharacterBody2D"]
 script = ExtResource( "1_cdp58" )
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource( "1_rwha3" )
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+frames = ExtResource( "2_015vo" )
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 14)

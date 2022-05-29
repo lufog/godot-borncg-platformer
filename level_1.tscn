@@ -1,34 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfh1u4x0mkb8g"]
+[gd_scene load_steps=3 format=3 uid="uid://bfh1u4x0mkb8g"]
 
-[ext_resource type="Texture2D" uid="uid://c4pwploe8rf0d" path="res://icon.png" id="1_pxg2g"]
+[ext_resource type="TileSet" uid="uid://dv2jenurmylje" path="res://world_tileset.tres" id="2_15ff0"]
 [ext_resource type="PackedScene" uid="uid://c2fr5q4eockqd" path="res://steve.tscn" id="2_no5gs"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_68bwy"]
-size = Vector2(768, 64)
 
 [node name="Level1" type="Node2D"]
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(386, 566)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor"]
-scale = Vector2(11.9688, 1)
-texture = ExtResource( "1_pxg2g" )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-shape = SubResource( "RectangleShape2D_68bwy" )
-
-[node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2(737, 395)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Floor2"]
-scale = Vector2(11.9688, 1)
-texture = ExtResource( "1_pxg2g" )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-shape = SubResource( "RectangleShape2D_68bwy" )
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(0, 9)
+tile_set = ExtResource( "2_15ff0" )
+cell_quadrant_size = 64
+format = 2
+layer_0/tile_data = PackedInt32Array(524301, 65536, 3, 524291, 262144, 1, 524292, 262144, 1, 524294, 262144, 1, 524295, 262144, 1, 524296, 262144, 1, 524297, 262144, 1, 524298, 262144, 1, 524299, 262144, 1, 524300, 262144, 1, 589826, 262144, 2, 589827, 262144, 2, 589828, 262144, 2, 589830, 262144, 2, 589831, 262144, 2, 589832, 262144, 2, 589833, 262144, 2, 589834, 262144, 2, 589835, 262144, 2, 589836, 262144, 2, 589837, 131072, 1, 655362, 262144, 2, 655363, 262144, 2, 655364, 262144, 2, 655366, 262144, 2, 655367, 262144, 2, 655368, 262144, 2, 655369, 262144, 2, 655370, 262144, 2, 655371, 262144, 2, 655372, 262144, 2, 655373, 262144, 2, 327691, 131072, 0, 327694, 196608, 0, 327692, 262144, 1, 327693, 262144, 1, 655365, 262144, 2, 589829, 262144, 2, 524293, 262144, 1, 524290, 262144, 1, 524289, 262144, 2, 589825, 262144, 2, 655361, 262144, 2, 655360, 262144, 2, 589824, 262144, 2, 524288, 262144, 2, 458752, 262144, 2, 458753, 262144, 2, 393216, 262144, 2, 393217, 262144, 2, 327681, 262144, 2, 327680, 262144, 2, 262144, 262144, 2, 262145, 262144, 2, 196609, 262144, 2, 196608, 262144, 2, 131072, 262144, 2, 131073, 262144, 2, 65536, 0, 0, 65537, 65536, 0, 589838, 262144, 1, 589839, 262144, 1, 589840, 262144, 1, 589841, 262144, 1, 589842, 262144, 1, 589843, 262144, 1, 655374, 262144, 2, 655375, 262144, 2, 655376, 262144, 2, 655377, 262144, 2, 655378, 262144, 2, 655379, 262144, 2)
 
 [node name="Steve" parent="." instance=ExtResource( "2_no5gs" )]
 position = Vector2(505, 130)

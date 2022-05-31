@@ -8,6 +8,7 @@ radius = 26.0
 height = 66.0
 
 [node name="Steve" type="CharacterBody2D"]
+collision_mask = 30
 script = ExtResource( "1_cdp58" )
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]

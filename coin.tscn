@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://s8we4qv3vdi7"]
+[gd_scene load_steps=9 format=3 uid="uid://s8we4qv3vdi7"]
 
 [ext_resource type="Texture2D" uid="uid://b3j7v11r50gfa" path="res://assets/coin/gold_1.png" id="1_50yak"]
 [ext_resource type="Script" path="res://coin.gd" id="1_hvufk"]
@@ -16,6 +16,27 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7clpj"]
 radius = 40.0
 
+[sub_resource type="Animation" id="Animation_grjui"]
+resource_name = "bounce"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -180), Vector2(0, -80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_isf7i"]
+_data = {
+"bounce": SubResource( "Animation_grjui" )
+}
+
 [node name="Coin" type="Area2D"]
 collision_layer = 8
 monitorable = false
@@ -27,5 +48,10 @@ playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( "CircleShape2D_7clpj" )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource( "AnimationLibrary_isf7i" )
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

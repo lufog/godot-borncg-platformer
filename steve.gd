@@ -7,6 +7,9 @@ const JUMP_VELOCITY = -640.0
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var coins := 0
+
+@onready var tree := get_tree()
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
 
 
@@ -33,3 +36,10 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 		
 	move_and_slide()
+	
+	if coins == 3:
+		tree.change_scene("res://level_1.tscn")
+
+
+func add_coin() -> void:
+	coins += 1

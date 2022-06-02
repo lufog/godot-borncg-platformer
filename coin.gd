@@ -6,7 +6,7 @@ signal coin_collected
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	coin_collected.emit()
 	set_deferred("monitoring", false)
 	animation_player.play("bounce")

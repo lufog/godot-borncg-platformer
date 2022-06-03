@@ -1,25 +1,25 @@
 extends CharacterBody2D
 
 
-const SPEED = 100.0
-enum Direction { LEFT, RIGHT }
-
-@export var start_direction: Direction
+@export var direction := -1
 @export var detects_cliffs := true
 
-var direction := 0
+var speed = 100.0
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
 
 @onready var animated_sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var collision := $CollisionShape2D as CollisionShape2D
 @onready var floor_checker := $FloorChecker as RayCast2D
+@onready var squash_area := $SquashArea as Area2D
+@onready var hit_area := $HitArea as Area2D
+@onready var timer := $Timer as Timer
 
 
 func _ready() -> void:
 	floor_checker.enabled = detects_cliffs
-	direction = -1 if (start_direction == Direction.LEFT) else 1
 	_rotate_character()
-	
+	if detects_cliffs:
+		modulate = Color(1.2, 0.5, 1)
 
 
 func _physics_process(delta: float) -> void:
@@ -32,9 +32,28 @@ func _physics_process(delta: float) -> void:
 		_rotate_character()
 
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 
 	move_and_slide()
+
+
+func _on_squash_area_body_entered(body: Node2D) -> void:
+	animated_sprite.play("squashed")
+	speed = 0
+	set_collision_layer_value(5, false)
+	set_collision_mask_value(1, false)
+	squash_area.set_collision_layer_value(5, false)
+	squash_area.set_collision_mask_value(1, false)
+	hit_area.set_collision_layer_value(5, false)
+	hit_area.set_collision_mask_value(1, false)
+	timer.start()
+	body.bounce()
+	await timer.timeout
+	queue_free()
+
+
+func _on_hit_area_body_entered(body: Node2D) -> void:
+	body.ouch(position.x)
 
 
 func _rotate_character() -> void:

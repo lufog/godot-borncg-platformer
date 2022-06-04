@@ -5,4 +5,4 @@ extends Node2D
 
 
 func _on_fall_zone_body_entered(_body: Node2D) -> void:
-	tree.change_scene("res://level_1.tscn")
+	tree.change_scene("res://game_over.tscn")

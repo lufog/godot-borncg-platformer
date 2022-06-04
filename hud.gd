@@ -11,14 +11,12 @@ func _ready() -> void:
 	_update_coins(coins)
 
 
-func _physics_process(_delta: float) -> void:
-	if coins == 3:
-		tree.change_scene("res://level_1.tscn")
-
-
 func _on_coin_collected() -> void:
 	coins += 1
 	_update_coins(coins)
+	
+	if coins == 3:
+		tree.change_scene("res://you_win.tscn")
 
 
 func _update_coins(value) -> void:

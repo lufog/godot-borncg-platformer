@@ -54,4 +54,4 @@ func ouch(enemy_posx: float) -> void:
 	Input.action_release("move_right")
 	timer.start()
 	await timer.timeout
-	tree.change_scene("res://level_1.tscn")
+	tree.change_scene("res://game_over.tscn")

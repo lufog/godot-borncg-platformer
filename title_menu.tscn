@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://w78sbpe66fsl"]
+[gd_scene load_steps=17 format=3 uid="uid://w78sbpe66fsl"]
 
 [ext_resource type="FontData" uid="uid://bbgtj8wcth6sb" path="res://assets/fonts/KiriFont.ttf" id="1_oofai"]
 [ext_resource type="Texture2D" uid="uid://6fejsj8qe0v5" path="res://assets/UI/grey_button04.png" id="2_orcs5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dmtx7d0lwanay" path="res://assets/enemies/slime_crawl_2.png" id="8_r2ksf"]
 [ext_resource type="Texture2D" uid="uid://b3j7v11r50gfa" path="res://assets/coin/gold_1.png" id="9_c8j0w"]
 [ext_resource type="Script" path="res://play_button.gd" id="10_51w26"]
+[ext_resource type="AudioStream" uid="uid://fnp7yc52q75n" path="res://assets/music/Swinging Pants.ogg" id="11_yp18d"]
 
 [sub_resource type="Font" id="Font_56qvj"]
 data/0 = ExtResource( "1_oofai" )
@@ -263,5 +264,10 @@ theme_override_font_sizes/font_size = 40
 text = "Play!"
 flat = true
 script = ExtResource( "10_51w26" )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "11_yp18d" )
+volume_db = -12.0
+autoplay = true
 
 [connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_pressed"]

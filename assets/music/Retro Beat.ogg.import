@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://88smaf47h6ip"
+path="res://.godot/imported/Retro Beat.ogg-68f021a39001e513572d33e5c83d0fc2.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Retro Beat.ogg"
+dest_files=["res://.godot/imported/Retro Beat.ogg-68f021a39001e513572d33e5c83d0fc2.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

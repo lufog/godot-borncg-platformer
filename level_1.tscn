@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfh1u4x0mkb8g"]
+[gd_scene load_steps=15 format=3 uid="uid://bfh1u4x0mkb8g"]
 
 [ext_resource type="Texture2D" uid="uid://d0ub3vj4r5p14" path="res://assets/background/set2_background.png" id="1_66evw"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_wh17r"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontData" uid="uid://be4158fr16ybq" path="res://assets/fonts/BalsamiqSans-Bold.ttf" id="3_7ultg"]
 [ext_resource type="PackedScene" uid="uid://s8we4qv3vdi7" path="res://coin.tscn" id="6_x62qv"]
 [ext_resource type="PackedScene" uid="uid://bt1bvknyymt7k" path="res://enemy.tscn" id="10_wkcd1"]
+[ext_resource type="AudioStream" uid="uid://88smaf47h6ip" path="res://assets/music/Retro Beat.ogg" id="11_4b1t0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keheb"]
 bg_color = Color(0, 0, 0, 0.443137)
@@ -164,6 +165,10 @@ position = Vector2(736, 480)
 [node name="Enemy2" parent="." instance=ExtResource( "10_wkcd1" )]
 position = Vector2(672, 288)
 detects_cliffs = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "11_4b1t0" )
+autoplay = true
 
 [connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_body_entered"]
 [connection signal="coin_collected" from="Coins/Coin" to="HUD" method="_on_coin_collected"]

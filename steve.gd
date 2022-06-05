@@ -10,6 +10,7 @@ var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
 @onready var tree := get_tree()
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
 @onready var timer := $Timer as Timer
+@onready var jump_sfx := $JumpSfx as AudioStreamPlayer
 
 
 func _physics_process(delta: float) -> void:
@@ -33,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			animated_sprite.flip_h = direction < 0
 			velocity.y = JUMP_VELOCITY
+			jump_sfx.play()
 		
 	move_and_slide()
 

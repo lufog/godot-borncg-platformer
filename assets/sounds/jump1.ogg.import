@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bsubtdof6nv0t"
+path="res://.godot/imported/jump1.ogg-f96c14c999364c76c89586faefa224a3.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/jump1.ogg"
+dest_files=["res://.godot/imported/jump1.ogg-f96c14c999364c76c89586faefa224a3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0

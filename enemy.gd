@@ -13,6 +13,7 @@ var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
 @onready var squash_area := $SquashArea as Area2D
 @onready var hit_area := $HitArea as Area2D
 @onready var timer := $Timer as Timer
+@onready var squash_sfx := $SquashSfx as AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_squash_area_body_entered(body: Node2D) -> void:
 	animated_sprite.play("squashed")
+	squash_sfx.play()
 	speed = 0
 	set_collision_layer_value(5, false)
 	set_collision_mask_value(1, false)

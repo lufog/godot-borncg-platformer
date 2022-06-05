@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://cb5dcwvkx6u4y"
+path="res://.godot/imported/minimize_001.ogg-f22f956cd6a1cf26b36ce28f03deea61.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/minimize_001.ogg"
+dest_files=["res://.godot/imported/minimize_001.ogg-f22f956cd6a1cf26b36ce28f03deea61.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bnjgs4kxvy00c"
+path="res://.godot/imported/powerUp10.ogg-481ee94c7db71e581a2c824346f1657f.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/powerUp10.ogg"
+dest_files=["res://.godot/imported/powerUp10.ogg-481ee94c7db71e581a2c824346f1657f.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

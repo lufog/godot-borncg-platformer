@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2fr5q4eockqd"]
+[gd_scene load_steps=5 format=3 uid="uid://c2fr5q4eockqd"]
 
 [ext_resource type="Script" path="res://steve.gd" id="1_cdp58"]
 [ext_resource type="SpriteFrames" uid="uid://rctfp2sa4hpb" path="res://steve_spriteframes.tres" id="2_015vo"]
+[ext_resource type="AudioStream" uid="uid://bsubtdof6nv0t" path="res://assets/sounds/jump1.ogg" id="3_ygi68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oibr"]
 radius = 26.0
@@ -23,3 +24,8 @@ shape = SubResource( "CapsuleShape2D_5oibr" )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
+
+[node name="JumpSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "3_ygi68" )
+volume_db = -8.0
+pitch_scale = 1.2

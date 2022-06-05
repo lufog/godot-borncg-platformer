@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://s8we4qv3vdi7"]
+[gd_scene load_steps=10 format=3 uid="uid://s8we4qv3vdi7"]
 
 [ext_resource type="Texture2D" uid="uid://b3j7v11r50gfa" path="res://assets/coin/gold_1.png" id="1_50yak"]
 [ext_resource type="Script" path="res://coin.gd" id="1_hvufk"]
 [ext_resource type="Texture2D" uid="uid://phxxmgp17kkr" path="res://assets/coin/gold_2.png" id="2_0g34q"]
 [ext_resource type="Texture2D" uid="uid://bmc68xta8304q" path="res://assets/coin/gold_3.png" id="3_ndfi1"]
+[ext_resource type="AudioStream" uid="uid://vq55ooeo2to8" path="res://assets/sounds/powerUp2.ogg" id="5_6b62i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7c41r"]
 animations = [{
@@ -53,5 +54,8 @@ shape = SubResource( "CircleShape2D_7clpj" )
 libraries = {
 "": SubResource( "AnimationLibrary_isf7i" )
 }
+
+[node name="CollectSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "5_6b62i" )
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://bbxv0q4lsi36a"
+path="res://.godot/imported/switch23.ogg-04b90d64d3e145615a33a4e2f43f9cd8.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/switch23.ogg"
+dest_files=["res://.godot/imported/switch23.ogg-04b90d64d3e145615a33a4e2f43f9cd8.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

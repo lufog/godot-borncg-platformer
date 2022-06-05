@@ -1,0 +1,16 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOGGVorbis"
+uid="uid://dgb53ksujs41c"
+path="res://.godot/imported/question_003.ogg-a5bd761f258fd37344bb167af7341541.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sounds/question_003.ogg"
+dest_files=["res://.godot/imported/question_003.ogg-a5bd761f258fd37344bb167af7341541.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,11 +1,15 @@
 extends CharacterBody2D
 
 
+enum States { AIR = 1, FLOOR, LADDER, WALL }
+
 const SPEED = 300.0
+const RUN_SPEED = 600.0
 const JUMP_VELOCITY = -640.0
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
+var state: States = States.AIR
 
 @onready var tree := get_tree()
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
@@ -17,26 +21,55 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	if direction:
-		animated_sprite.flip_h = direction < 0
-		animated_sprite.play("walk")
-		velocity.x = direction * SPEED
-	else:
-		animated_sprite.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if not is_on_floor():
-		# Add the gravity.
-		animated_sprite.play("jump")
-		velocity.y += gravity * delta
-	else:
-		# Handle Jump.
-		if Input.is_action_just_pressed("jump"):
-			animated_sprite.flip_h = direction < 0
-			velocity.y = JUMP_VELOCITY
-			jump_sfx.play()
-		
-	move_and_slide()
+	match state:
+		States.AIR:
+			if is_on_floor():
+				state = States.FLOOR
+				continue
+			
+			animated_sprite.play("jump")
+			if direction:
+				animated_sprite.flip_h = direction < 0
+				var decel = 0.1 if abs(velocity.x) < SPEED else 0.03
+				velocity.x = lerp(velocity.x, direction * SPEED, decel)
+			else:
+				velocity.x = lerp(velocity.x, 0, 0.2)
+			
+			# Add the gravity.
+			velocity.y += gravity * delta
+			move_and_slide()
+			
+		States.FLOOR:
+			if not is_on_floor():
+				state = States.AIR
+				continue
+			
+			if direction:
+				animated_sprite.flip_h = direction < 0
+				animated_sprite.play("walk")
+				if Input.is_action_pressed("run"):
+					animated_sprite.speed_scale = 1.8
+					velocity.x = lerp(velocity.x, direction * RUN_SPEED, 0.1)
+				else:
+					animated_sprite.speed_scale = 1
+					velocity.x = lerp(velocity.x, direction * SPEED, 0.1)
+			else:
+				animated_sprite.play("idle")
+				velocity.x = lerp(velocity.x, 0, 0.2)
+			
+			# Handle Jump.
+			if Input.is_action_just_pressed("jump"):
+				state = States.AIR
+				velocity.y = JUMP_VELOCITY
+				jump_sfx.play()
+			
+			move_and_slide()
+			
+		States.LADDER:
+			pass
+			
+		States.WALL:
+			pass
 
 
 func bounce() -> void:

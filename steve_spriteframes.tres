@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://rctfp2sa4hpb"]
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://rctfp2sa4hpb"]
 
 [ext_resource type="Texture2D" uid="uid://co0xl0sp3faq3" path="res://assets/player/platformChar_idle.png" id="1_qa82x"]
 [ext_resource type="Texture2D" uid="uid://rb7ow7jibswx" path="res://assets/player/platformChar_walk1.png" id="2_eew4e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vf31ylm2nlhb" path="res://assets/player/platformChar_duck.png" id="5_b1i2f"]
 [ext_resource type="Texture2D" uid="uid://bx8n13j77a3rw" path="res://assets/player/platformChar_climb1.png" id="6_nty0m"]
 [ext_resource type="Texture2D" uid="uid://dgwr1nkp8jyrj" path="res://assets/player/platformChar_climb2.png" id="7_pl10e"]
+[ext_resource type="Texture2D" uid="uid://cwn0lyjpoyl54" path="res://assets/player/platformChar_happy.png" id="8_oy2s4"]
 
 [resource]
 animations = [{
@@ -33,5 +34,10 @@ animations = [{
 "frames": [ExtResource( "6_nty0m" ), ExtResource( "7_pl10e" )],
 "loop": true,
 "name": &"climb",
+"speed": 5.0
+}, {
+"frames": [ExtResource( "8_oy2s4" )],
+"loop": true,
+"name": &"wall",
 "speed": 5.0
 }]

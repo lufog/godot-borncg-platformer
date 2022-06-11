@@ -29,3 +29,8 @@ one_shot = true
 stream = ExtResource( "3_ygi68" )
 volume_db = -8.0
 pitch_scale = 1.2
+
+[node name="WallChecker" type="RayCast2D" parent="."]
+position = Vector2(0, -32)
+target_position = Vector2(30, 0)
+collision_mask = 2

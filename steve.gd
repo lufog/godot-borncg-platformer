@@ -9,6 +9,8 @@ const JUMP_VELOCITY = -640.0
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
+var facing_direction := 1.0
+var last_jump_direction := 0.0
 var state := States.AIR
 var fireball_scene = preload("res://fireball.tscn") as PackedScene
 
@@ -16,21 +18,28 @@ var fireball_scene = preload("res://fireball.tscn") as PackedScene
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
 @onready var timer := $Timer as Timer
 @onready var jump_sfx := $JumpSfx as AudioStreamPlayer
+@onready var wall_checker := $WallChecker as RayCast2D
 
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
 	
+	if direction:
+		facing_direction = ceil(direction)
+		animated_sprite.flip_h = direction < 0
+	
 	match state:
 		States.AIR:
 			if is_on_floor():
 				state = States.FLOOR
 				continue
+			elif _is_near_wall():
+				state = States.WALL
+				continue
 			
 			animated_sprite.play("jump")
 			if direction:
-				animated_sprite.flip_h = direction < 0
 				var decel = 0.1 if abs(velocity.x) < SPEED else 0.03
 				velocity.x = lerp(velocity.x, direction * SPEED, decel)
 			else:
@@ -47,7 +56,6 @@ func _physics_process(delta: float) -> void:
 				continue
 			
 			if direction:
-				animated_sprite.flip_h = direction < 0
 				animated_sprite.play("walk")
 				if Input.is_action_pressed("run"):
 					animated_sprite.speed_scale = 1.8
@@ -72,8 +80,30 @@ func _physics_process(delta: float) -> void:
 			pass
 			
 		States.WALL:
-			pass
-
+			if is_on_floor():
+				last_jump_direction = 0
+				state = States.FLOOR
+				continue
+			elif not _is_near_wall():
+				state = States.AIR
+				continue
+			
+			animated_sprite.play("wall")
+			if facing_direction != last_jump_direction \
+					and Input.is_action_pressed("jump") \
+					and ((Input.is_action_pressed("move_left") and facing_direction == 1) \
+					or (Input.is_action_pressed("move_right") and facing_direction == -1)):
+				
+				last_jump_direction = facing_direction
+				velocity.x = 450 * -facing_direction
+				velocity.y = JUMP_VELOCITY * 0.7
+				jump_sfx.play()
+				state = States.AIR
+			
+			velocity.y += gravity * delta
+			velocity.y = clamp(velocity.y, JUMP_VELOCITY, 200)
+			move_and_slide()
+	
 
 func bounce() -> void:
 	velocity.y = JUMP_VELOCITY * 0.7
@@ -96,9 +126,13 @@ func ouch(enemy_posx: float) -> void:
 
 
 func _fire() -> void:
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire") and not _is_near_wall():
 		var fireball := fireball_scene.instantiate()
-		var direction := -1 if animated_sprite.flip_h else 1
-		fireball.direction = direction
-		fireball.position = position + Vector2(40 * direction, -20)
+		fireball.direction = facing_direction
+		fireball.position = position + Vector2(40 * facing_direction, -20)
 		get_parent().add_child(fireball)
+
+
+func _is_near_wall() -> bool:
+	wall_checker.target_position.x = 30 * facing_direction
+	return wall_checker.is_colliding()

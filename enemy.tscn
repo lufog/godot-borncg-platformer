@@ -20,7 +20,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w4pns"]
-size = Vector2(38, 24)
+size = Vector2(38, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px2wx"]
 size = Vector2(32, 5)
@@ -33,17 +33,16 @@ size = Vector2(4, 22)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 16
-collision_mask = 35
+collision_mask = 3
 script = ExtResource( "1_ojisx" )
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 frames = SubResource( "SpriteFrames_s4t38" )
 animation = &"crawl"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, 16)
 shape = SubResource( "RectangleShape2D_w4pns" )
 
 [node name="FloorChecker" type="RayCast2D" parent="."]
@@ -52,7 +51,6 @@ collision_mask = 2
 
 [node name="SquashArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 33
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SquashArea"]
@@ -61,6 +59,7 @@ shape = SubResource( "RectangleShape2D_px2wx" )
 
 [node name="HitArea" type="Area2D" parent="."]
 collision_layer = 0
+collision_mask = 33
 monitorable = false
 
 [node name="LeftCollision" type="CollisionShape2D" parent="HitArea"]

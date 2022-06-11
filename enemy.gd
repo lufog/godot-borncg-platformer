@@ -24,7 +24,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -55,7 +54,11 @@ func _on_squash_area_body_entered(body: Node2D) -> void:
 
 
 func _on_hit_area_body_entered(body: Node2D) -> void:
-	body.ouch(position.x)
+	if body.collision_layer == 1:
+		body.ouch(position.x)
+	elif body.collision_layer == 32:
+		body.queue_free()
+		queue_free()
 
 
 func _rotate_character() -> void:

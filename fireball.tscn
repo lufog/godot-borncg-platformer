@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbnjtj85wrh72"]
+
+[ext_resource type="Texture2D" uid="uid://dq5k8ip8dl38r" path="res://assets/projectiles/fireball.png" id="1_ac6sn"]
+[ext_resource type="Script" path="res://fireball.gd" id="1_krbm4"]
+[ext_resource type="AudioStream" uid="uid://cb5dcwvkx6u4y" path="res://assets/sounds/minimize_001.ogg" id="3_q05ga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r5nkq"]
+radius = 12.0
+
+[node name="Fireball" type="CharacterBody2D"]
+collision_layer = 32
+collision_mask = 2
+script = ExtResource( "1_krbm4" )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource( "1_ac6sn" )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( "CircleShape2D_r5nkq" )
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( "3_q05ga" )
+volume_db = -25.0
+pitch_scale = 0.8
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

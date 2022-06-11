@@ -12,5 +12,5 @@ dest_files=["res://.godot/imported/minimize_001.ogg-f22f956cd6a1cf26b36ce28f03de
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

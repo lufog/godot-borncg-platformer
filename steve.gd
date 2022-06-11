@@ -9,7 +9,8 @@ const JUMP_VELOCITY = -640.0
 
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
-var state: States = States.AIR
+var state := States.AIR
+var fireball_scene = preload("res://fireball.tscn") as PackedScene
 
 @onready var tree := get_tree()
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
@@ -38,6 +39,7 @@ func _physics_process(delta: float) -> void:
 			# Add the gravity.
 			velocity.y += gravity * delta
 			move_and_slide()
+			_fire()
 			
 		States.FLOOR:
 			if not is_on_floor():
@@ -64,6 +66,7 @@ func _physics_process(delta: float) -> void:
 				jump_sfx.play()
 			
 			move_and_slide()
+			_fire()
 			
 		States.LADDER:
 			pass
@@ -90,3 +93,12 @@ func ouch(enemy_posx: float) -> void:
 	timer.start()
 	await timer.timeout
 	tree.change_scene("res://game_over.tscn")
+
+
+func _fire() -> void:
+	if Input.is_action_just_pressed("fire"):
+		var fireball := fireball_scene.instantiate()
+		var direction := -1 if animated_sprite.flip_h else 1
+		fireball.direction = direction
+		fireball.position = position + Vector2(40 * direction, -20)
+		get_parent().add_child(fireball)

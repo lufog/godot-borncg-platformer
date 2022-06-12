@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2fr5q4eockqd"]
+[gd_scene load_steps=6 format=3 uid="uid://c2fr5q4eockqd"]
 
 [ext_resource type="Script" path="res://steve.gd" id="1_cdp58"]
 [ext_resource type="SpriteFrames" uid="uid://rctfp2sa4hpb" path="res://steve_spriteframes.tres" id="2_015vo"]
@@ -7,6 +7,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oibr"]
 radius = 26.0
 height = 66.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbgth"]
+size = Vector2(20, 64)
 
 [node name="Steve" type="CharacterBody2D"]
 collision_mask = 30
@@ -34,3 +37,13 @@ pitch_scale = 1.2
 position = Vector2(0, -32)
 target_position = Vector2(30, 0)
 collision_mask = 2
+
+[node name="LadderChecker" type="Area2D" parent="."]
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderChecker"]
+position = Vector2(0, -32)
+shape = SubResource( "RectangleShape2D_jbgth" )
+
+[connection signal="body_entered" from="LadderChecker" to="." method="_on_ladder_checker_body_entered"]
+[connection signal="body_exited" from="LadderChecker" to="." method="_on_ladder_checker_body_exited"]

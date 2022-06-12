@@ -11,6 +11,7 @@ const JUMP_VELOCITY = -640.0
 var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
 var facing_direction := 1.0
 var last_jump_direction := 0.0
+var on_ladder := false
 var state := States.AIR
 var fireball_scene = preload("res://fireball.tscn") as PackedScene
 
@@ -31,11 +32,14 @@ func _physics_process(delta: float) -> void:
 	
 	match state:
 		States.AIR:
-			if is_on_floor():
+			if is_on_floor() and velocity.y == 0:
 				state = States.FLOOR
 				continue
 			elif _is_near_wall():
 				state = States.WALL
+				continue
+			elif _should_climb_ladder():
+				state = States.LADDER
 				continue
 			
 			animated_sprite.play("jump")
@@ -49,10 +53,13 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 			move_and_slide()
 			_fire()
-			
+		
 		States.FLOOR:
 			if not is_on_floor():
 				state = States.AIR
+				continue
+			elif _should_climb_ladder():
+				state = States.LADDER
 				continue
 			
 			if direction:
@@ -75,10 +82,47 @@ func _physics_process(delta: float) -> void:
 			
 			move_and_slide()
 			_fire()
-			
+		
 		States.LADDER:
-			pass
+			if not on_ladder:
+				state = States.AIR
+				continue
+			elif is_on_floor() and Input.is_action_pressed("down") and velocity.y == 0:
+				state = States.FLOOR
+				Input.action_release("down")
+				continue
+			elif Input.is_action_just_pressed("jump"):
+				state = States.FLOOR
+				Input.action_release("up")
+				Input.action_release("down")
+				velocity.y = JUMP_VELOCITY * 0.7
+				state = States.AIR
+				continue
 			
+			if Input.is_action_pressed("up") \
+					or Input.is_action_pressed("down") \
+					or Input.is_action_pressed("move_left") \
+					or Input.is_action_pressed("move_right"):
+				animated_sprite.play("climb")
+			else:
+				animated_sprite.stop()
+			
+			if Input.is_action_pressed("up"):
+				velocity.y = -SPEED
+			elif Input.is_action_pressed("down"):
+				velocity.y = SPEED
+			else:
+				velocity.y = lerp(velocity.y, 0, 0.3)
+			
+			if Input.is_action_pressed("move_left"):
+				velocity.x = -SPEED / 6
+			elif Input.is_action_pressed("move_right"):
+				velocity.x = SPEED / 6
+			else:
+				velocity.x = lerp(velocity.x, 0, 0.3)
+			
+			move_and_slide()
+		
 		States.WALL:
 			if is_on_floor():
 				last_jump_direction = 0
@@ -103,7 +147,15 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 			velocity.y = clamp(velocity.y, JUMP_VELOCITY, 200)
 			move_and_slide()
-	
+
+
+func _on_ladder_checker_body_entered(body: Node2D) -> void:
+	on_ladder = true
+
+
+func _on_ladder_checker_body_exited(body: Node2D) -> void:
+	on_ladder = false
+
 
 func bounce() -> void:
 	velocity.y = JUMP_VELOCITY * 0.7
@@ -131,6 +183,11 @@ func _fire() -> void:
 		fireball.direction = facing_direction
 		fireball.position = position + Vector2(40 * facing_direction, -20)
 		get_parent().add_child(fireball)
+
+
+func _should_climb_ladder() -> bool:
+	return on_ladder and (Input.is_action_pressed("up") \
+			or Input.is_action_pressed("down"))
 
 
 func _is_near_wall() -> bool:

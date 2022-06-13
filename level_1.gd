@@ -5,4 +5,6 @@ extends Node2D
 
 
 func _on_fall_zone_body_entered(_body: Node2D) -> void:
-	tree.change_scene("res://game_over.tscn")
+	if Global.lives >= 1:
+		tree.reload_current_scene()
+	Global.lose_life()

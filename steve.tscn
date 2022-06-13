@@ -25,7 +25,7 @@ position = Vector2(0, -34)
 shape = SubResource( "CapsuleShape2D_5oibr" )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.6
+wait_time = 2.5
 one_shot = true
 
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]

@@ -5,4 +5,5 @@ extends Button
 
 
 func _on_pressed() -> void:
+	Global.lives = Global.max_lives
 	tree.change_scene("res://level_1.tscn")

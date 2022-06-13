@@ -15,7 +15,6 @@ var on_ladder := false
 var state := States.AIR
 var fireball_scene = preload("res://fireball.tscn") as PackedScene
 
-@onready var tree := get_tree()
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
 @onready var timer := $Timer as Timer
 @onready var jump_sfx := $JumpSfx as AudioStreamPlayer
@@ -149,11 +148,11 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 
 
-func _on_ladder_checker_body_entered(body: Node2D) -> void:
+func _on_ladder_checker_body_entered(_body: Node2D) -> void:
 	on_ladder = true
 
 
-func _on_ladder_checker_body_exited(body: Node2D) -> void:
+func _on_ladder_checker_body_exited(_body: Node2D) -> void:
 	on_ladder = false
 
 
@@ -162,6 +161,7 @@ func bounce() -> void:
 
 
 func ouch(enemy_posx: float) -> void:
+	Global.lose_life()
 	modulate = Color(1, 0.3, 0.3, 0.3)
 	velocity.y = JUMP_VELOCITY * 0.5
 	
@@ -174,7 +174,7 @@ func ouch(enemy_posx: float) -> void:
 	Input.action_release("move_right")
 	timer.start()
 	await timer.timeout
-	tree.change_scene("res://game_over.tscn")
+	modulate = Color(1, 1, 1, 1)
 
 
 func _fire() -> void:

@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/BalsamiqSans-Bold.ttf-24a5245c156d9bc0f066363
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false

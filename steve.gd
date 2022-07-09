@@ -12,6 +12,7 @@ var gravity := ProjectSettings.get_setting("physics/2d/default_gravity") as int
 var facing_direction := 1.0
 var last_jump_direction := 0.0
 var on_ladder := false
+var hurt := 0
 var state := States.AIR
 var fireball_scene = preload("res://fireball.tscn") as PackedScene
 
@@ -156,13 +157,23 @@ func _on_ladder_checker_body_exited(_body: Node2D) -> void:
 	on_ladder = false
 
 
+func _on_hurt_timer_timeout() -> void:
+	if hurt <= 0:
+		timer.stop()
+		modulate = Color(1, 1, 1, 1)
+		set_collision_layer_value(1, true)
+	else:
+		modulate = Color(1, 1, 1, 0.9) if hurt % 2 == 0 else Color(1, 0.3, 0.3, 0.7)
+	hurt -= 1
+	
+
+
 func bounce() -> void:
 	velocity.y = JUMP_VELOCITY * 0.7
 
 
 func ouch(enemy_posx: float) -> void:
 	Global.lose_life()
-	modulate = Color(1, 0.3, 0.3, 0.3)
 	velocity.y = JUMP_VELOCITY * 0.5
 	
 	if position.x < enemy_posx:
@@ -172,13 +183,15 @@ func ouch(enemy_posx: float) -> void:
 	
 	Input.action_release("move_left")
 	Input.action_release("move_right")
+	
+	modulate = Color(1, 0.3, 0.3, 0.3)
+	set_collision_layer_value(1, false)
 	timer.start()
-	await timer.timeout
-	modulate = Color(1, 1, 1, 1)
+	hurt = 20
 
 
 func _fire() -> void:
-	if Input.is_action_just_pressed("fire") and not _is_near_wall():
+	if Input.is_action_just_pressed("fire") and not _is_near_wall() and hurt <= 0:
 		var fireball := fireball_scene.instantiate()
 		fireball.direction = facing_direction
 		fireball.position = position + Vector2(40 * facing_direction, -20)
@@ -193,3 +206,4 @@ func _should_climb_ladder() -> bool:
 func _is_near_wall() -> bool:
 	wall_checker.target_position.x = 30 * facing_direction
 	return wall_checker.is_colliding()
+

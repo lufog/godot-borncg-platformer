@@ -23,30 +23,30 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="Font" id="Font_8aaag"]
-data/0 = ExtResource( "3_7ultg" )
+data/0 = ExtResource("3_7ultg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf0lr"]
 size = Vector2(512, 64)
 
 [node name="Level" type="Node2D"]
-script = ExtResource( "1_wh17r" )
+script = ExtResource("1_wh17r")
 
 [node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource( "2_fn5mu" )
+script = ExtResource("2_fn5mu")
 
 [node name="Panel" type="Panel" parent="HUD"]
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 296.0
 offset_bottom = 84.0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_keheb" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_keheb")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/Panel"]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 56.0
 offset_bottom = 56.0
-texture = ExtResource( "2_b8sl0" )
+texture = ExtResource("2_b8sl0")
 ignore_texture_size = true
 
 [node name="Cross" type="Label" parent="HUD/Panel"]
@@ -54,7 +54,7 @@ offset_left = 63.0
 offset_right = 77.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.960784, 0.792157, 0.235294, 1)
-theme_override_fonts/font = SubResource( "Font_8aaag" )
+theme_override_fonts/font = SubResource("Font_8aaag")
 theme_override_font_sizes/font_size = 24
 text = "x"
 vertical_alignment = 1
@@ -64,7 +64,7 @@ offset_left = 83.0
 offset_right = 129.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.960784, 0.792157, 0.235294, 1)
-theme_override_fonts/font = SubResource( "Font_8aaag" )
+theme_override_fonts/font = SubResource("Font_8aaag")
 theme_override_font_sizes/font_size = 40
 text = "99"
 vertical_alignment = 1
@@ -75,7 +75,7 @@ offset_top = 12.0
 offset_right = 299.0
 offset_bottom = 57.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource( "6_7qkwg" )
+texture = ExtResource("6_7qkwg")
 stretch_mode = 1
 
 [node name="HeartsFull" type="TextureRect" parent="HUD/Panel"]
@@ -84,12 +84,11 @@ offset_top = 12.0
 offset_right = 193.0
 offset_bottom = 57.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource( "5_nyyfm" )
+texture = ExtResource("5_nyyfm")
 ignore_texture_size = true
 stretch_mode = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="PurpleSky" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1280, 960)
@@ -97,7 +96,7 @@ motion_mirroring = Vector2(1280, 960)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/PurpleSky"]
 modulate = Color(0.917647, 0.917647, 0.917647, 1)
 texture_repeat = 2
-texture = ExtResource( "1_66evw" )
+texture = ExtResource("1_66evw")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 960)
@@ -110,7 +109,7 @@ motion_mirroring = Vector2(1920, 1440)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackBlocks"]
 modulate = Color(0.8, 0.831373, 0.92549, 1)
 scale = Vector2(3, 3)
-texture = ExtResource( "2_j6rom" )
+texture = ExtResource("2_j6rom")
 centered = false
 
 [node name="MiddleBlocks" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -121,7 +120,7 @@ motion_mirroring = Vector2(1280, 960)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MiddleBlocks"]
 modulate = Color(0.862745, 0.898039, 1, 1)
 scale = Vector2(2, 2)
-texture = ExtResource( "2_j6rom" )
+texture = ExtResource("2_j6rom")
 centered = false
 
 [node name="NearbyBlocks" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -130,13 +129,13 @@ motion_mirroring = Vector2(1280, 960)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearbyBlocks"]
 texture_repeat = 2
-texture = ExtResource( "2_j6rom" )
+texture = ExtResource("2_j6rom")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 1280, 960)
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( "2_15ff0" )
+tile_set = ExtResource("2_15ff0")
 cell_quadrant_size = 64
 format = 2
 layer_0/name = "Ground"
@@ -151,11 +150,12 @@ layer_1/tile_data = PackedInt32Array(131107, 1, 0, 196643, 1, 0, 262179, 1, 0, 3
 
 [node name="LadderTops" type="Node2D" parent="."]
 
-[node name="LadderTop" parent="LadderTops" instance=ExtResource( "8_kq541" )]
+[node name="LadderTop" parent="LadderTops" instance=ExtResource("8_kq541")]
 position = Vector2(2272, 72)
 
-[node name="Steve" parent="." instance=ExtResource( "2_no5gs" )]
-position = Vector2(2144, 576)
+[node name="Steve" parent="." instance=ExtResource("2_no5gs")]
+position = Vector2(195, 474)
+collision_mask = 6
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Steve"]
@@ -182,29 +182,28 @@ monitorable = false
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FallZone"]
-shape = SubResource( "RectangleShape2D_yf0lr" )
+shape = SubResource("RectangleShape2D_yf0lr")
 
 [node name="Coins" type="Node2D" parent="."]
-visible = false
 
-[node name="Coin" parent="Coins" instance=ExtResource( "6_x62qv" )]
+[node name="Coin" parent="Coins" instance=ExtResource("6_x62qv")]
 position = Vector2(448, 256)
 
-[node name="Coin2" parent="Coins" instance=ExtResource( "6_x62qv" )]
+[node name="Coin2" parent="Coins" instance=ExtResource("6_x62qv")]
 position = Vector2(640, 256)
 
-[node name="Coin3" parent="Coins" instance=ExtResource( "6_x62qv" )]
+[node name="Coin3" parent="Coins" instance=ExtResource("6_x62qv")]
 position = Vector2(1280, 320)
 
-[node name="Enemy" parent="." instance=ExtResource( "10_wkcd1" )]
+[node name="Enemy" parent="." instance=ExtResource("10_wkcd1")]
 position = Vector2(736, 480)
 
-[node name="Enemy2" parent="." instance=ExtResource( "10_wkcd1" )]
+[node name="Enemy2" parent="." instance=ExtResource("10_wkcd1")]
 position = Vector2(672, 288)
 detects_cliffs = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "11_4b1t0" )
+stream = ExtResource("11_4b1t0")
 autoplay = true
 
 [connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_body_entered"]

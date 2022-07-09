@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/Sniglet-Regular.ttf-c153d16c4c8559b1b9e9030c8
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false

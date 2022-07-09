@@ -12,6 +12,7 @@ dest_files=["res://.godot/imported/KiriFont.ttf-eea466a2a689c30c01dabfe8f710f196
 
 [params]
 
+face_index=0
 antialiased=true
 generate_mipmaps=false
 multichannel_signed_distance_field=false

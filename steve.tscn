@@ -12,24 +12,23 @@ height = 66.0
 size = Vector2(20, 64)
 
 [node name="Steve" type="CharacterBody2D"]
-collision_mask = 30
-script = ExtResource( "1_cdp58" )
+collision_mask = 6
+script = ExtResource("1_cdp58")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
-frames = ExtResource( "2_015vo" )
+frames = ExtResource("2_015vo")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -34)
-shape = SubResource( "CapsuleShape2D_5oibr" )
+shape = SubResource("CapsuleShape2D_5oibr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.5
-one_shot = true
+wait_time = 0.2
 
 [node name="JumpSfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "3_ygi68" )
+stream = ExtResource("3_ygi68")
 volume_db = -8.0
 pitch_scale = 1.2
 
@@ -43,7 +42,8 @@ collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderChecker"]
 position = Vector2(0, -32)
-shape = SubResource( "RectangleShape2D_jbgth" )
+shape = SubResource("RectangleShape2D_jbgth")
 
+[connection signal="timeout" from="Timer" to="." method="_on_hurt_timer_timeout"]
 [connection signal="body_entered" from="LadderChecker" to="." method="_on_ladder_checker_body_entered"]
 [connection signal="body_exited" from="LadderChecker" to="." method="_on_ladder_checker_body_exited"]

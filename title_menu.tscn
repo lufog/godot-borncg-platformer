@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://fnp7yc52q75n" path="res://assets/music/Swinging Pants.ogg" id="11_yp18d"]
 
 [sub_resource type="Font" id="Font_56qvj"]
-data/0 = ExtResource( "1_oofai" )
+data/0 = ExtResource("1_oofai")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7od8"]
 bg_color = Color(0.380392, 0.121569, 0.00784314, 0.113725)
@@ -23,15 +23,15 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="Font" id="Font_wgqmp"]
-data/0 = ExtResource( "3_qpgxy" )
+data/0 = ExtResource("3_qpgxy")
 
 [sub_resource type="Font" id="Font_lxbkb"]
-data/0 = ExtResource( "3_qpgxy" )
-data/1 = ExtResource( "6_lbdr3" )
-data/2 = ExtResource( "3_qpgxy" )
+data/0 = ExtResource("3_qpgxy")
+data/1 = ExtResource("6_lbdr3")
+data/2 = ExtResource("3_qpgxy")
 
 [sub_resource type="Font" id="Font_pls14"]
-data/0 = ExtResource( "1_oofai" )
+data/0 = ExtResource("1_oofai")
 
 [node name="TitleMenu" type="Control"]
 anchor_right = 1.0
@@ -56,7 +56,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.329412, 0.466667, 1, 1)
 theme_override_colors/font_outline_color = Color(0.913725, 0.8, 0.0509804, 1)
 theme_override_constants/outline_size = 16
-theme_override_fonts/font = SubResource( "Font_56qvj" )
+theme_override_fonts/font = SubResource("Font_56qvj")
 theme_override_font_sizes/font_size = 70
 text = "Platformer!"
 metadata/_edit_layout_mode = 1
@@ -69,7 +69,7 @@ offset_top = -215.0
 offset_right = 345.0
 offset_bottom = -30.0
 grow_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_w7od8" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_w7od8")
 metadata/_edit_layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel"]
@@ -77,7 +77,7 @@ offset_left = 52.0
 offset_top = 63.0
 offset_right = 166.0
 offset_bottom = 97.0
-texture = ExtResource( "2_orcs5" )
+texture = ExtResource("2_orcs5")
 ignore_texture_size = true
 
 [node name="Label" type="Label" parent="LeftPanel/TextureRect"]
@@ -86,7 +86,7 @@ offset_top = 5.0
 offset_right = 88.0
 offset_bottom = 32.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 20
 text = "SPACE"
 
@@ -95,7 +95,7 @@ offset_left = 123.0
 offset_top = 1.0
 offset_right = 210.0
 offset_bottom = 34.0
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 24
 text = "= Jump!"
 
@@ -104,7 +104,7 @@ offset_left = 61.0
 offset_top = 118.0
 offset_right = 99.0
 offset_bottom = 153.0
-texture = ExtResource( "4_lf8r4" )
+texture = ExtResource("4_lf8r4")
 ignore_texture_size = true
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel/TextureRect2"]
@@ -119,7 +119,7 @@ offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
-texture = ExtResource( "5_37xbh" )
+texture = ExtResource("5_37xbh")
 ignore_texture_size = true
 metadata/_edit_layout_mode = 1
 
@@ -128,7 +128,7 @@ offset_left = 118.0
 offset_top = 118.0
 offset_right = 156.0
 offset_bottom = 153.0
-texture = ExtResource( "4_lf8r4" )
+texture = ExtResource("4_lf8r4")
 ignore_texture_size = true
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel/TextureRect3"]
@@ -143,7 +143,7 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
-texture = ExtResource( "5_37xbh" )
+texture = ExtResource("5_37xbh")
 ignore_texture_size = true
 metadata/_edit_layout_mode = 1
 
@@ -152,7 +152,7 @@ offset_left = 175.0
 offset_top = 119.0
 offset_right = 262.0
 offset_bottom = 152.0
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 24
 text = "= Move!"
 
@@ -162,7 +162,7 @@ offset_top = 14.0
 offset_right = 132.0
 offset_bottom = 52.0
 theme_override_colors/font_color = Color(0.913725, 0.8, 0.0509804, 1)
-theme_override_fonts/font = SubResource( "Font_lxbkb" )
+theme_override_fonts/font = SubResource("Font_lxbkb")
 theme_override_font_sizes/font_size = 28
 text = "Controls:"
 
@@ -177,7 +177,7 @@ offset_right = -29.0
 offset_bottom = -30.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_styles/panel = SubResource( "StyleBoxFlat_w7od8" )
+theme_override_styles/panel = SubResource("StyleBoxFlat_w7od8")
 metadata/_edit_layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="RightPanel"]
@@ -185,7 +185,7 @@ offset_left = 13.0
 offset_top = 46.0
 offset_right = 70.0
 offset_bottom = 103.0
-texture = ExtResource( "7_vbgpe" )
+texture = ExtResource("7_vbgpe")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -194,7 +194,7 @@ offset_left = 65.0
 offset_top = 21.0
 offset_right = 126.0
 offset_bottom = 54.0
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 24
 text = "=You!"
 
@@ -203,7 +203,7 @@ offset_left = 147.0
 offset_top = 68.0
 offset_right = 187.0
 offset_bottom = 94.0
-texture = ExtResource( "8_r2ksf" )
+texture = ExtResource("8_r2ksf")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -211,7 +211,7 @@ stretch_mode = 4
 offset_left = 51.0
 offset_right = 112.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 24
 text = "= Enemy!"
 
@@ -220,7 +220,7 @@ offset_left = 154.0
 offset_top = 119.0
 offset_right = 181.0
 offset_bottom = 145.0
-texture = ExtResource( "9_c8j0w" )
+texture = ExtResource("9_c8j0w")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -228,7 +228,7 @@ stretch_mode = 4
 offset_left = -109.0
 offset_right = -5.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 24
 text = "Collect 3 "
 
@@ -236,7 +236,7 @@ text = "Collect 3 "
 offset_left = 37.0
 offset_right = 141.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource( "Font_wgqmp" )
+theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 24
 text = "to win!"
 
@@ -246,7 +246,7 @@ offset_top = 14.0
 offset_right = 132.0
 offset_bottom = 52.0
 theme_override_colors/font_color = Color(0.913725, 0.8, 0.0509804, 1)
-theme_override_fonts/font = SubResource( "Font_lxbkb" )
+theme_override_fonts/font = SubResource("Font_lxbkb")
 theme_override_font_sizes/font_size = 28
 text = "Items:"
 
@@ -259,14 +259,14 @@ theme_override_colors/font_color = Color(0.478431, 1, 0.121569, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0.184314, 0.909804, 1)
 theme_override_colors/font_focus_color = Color(0.478431, 1, 0.121569, 1)
-theme_override_fonts/font = SubResource( "Font_pls14" )
+theme_override_fonts/font = SubResource("Font_pls14")
 theme_override_font_sizes/font_size = 40
 text = "Play!"
 flat = true
-script = ExtResource( "10_51w26" )
+script = ExtResource("10_51w26")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "11_yp18d" )
+stream = ExtResource("11_yp18d")
 volume_db = -12.0
 autoplay = true
 

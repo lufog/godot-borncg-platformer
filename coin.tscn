@@ -8,7 +8,7 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7c41r"]
 animations = [{
-"frames": [ExtResource( "1_50yak" ), ExtResource( "2_0g34q" ), ExtResource( "3_ndfi1" )],
+"frames": [ExtResource("1_50yak"), ExtResource("2_0g34q"), ExtResource("3_ndfi1")],
 "loop": true,
 "name": &"default",
 "speed": 3.0
@@ -35,28 +35,28 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_isf7i"]
 _data = {
-"bounce": SubResource( "Animation_grjui" )
+"bounce": SubResource("Animation_grjui")
 }
 
 [node name="Coin" type="Area2D"]
 collision_layer = 8
 monitorable = false
-script = ExtResource( "1_hvufk" )
+script = ExtResource("1_hvufk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-frames = SubResource( "SpriteFrames_7c41r" )
-frame = 2
+frames = SubResource("SpriteFrames_7c41r")
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( "CircleShape2D_7clpj" )
+shape = SubResource("CircleShape2D_7clpj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource( "AnimationLibrary_isf7i" )
+"": SubResource("AnimationLibrary_isf7i")
 }
 
 [node name="CollectSfx" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( "5_6b62i" )
+stream = ExtResource("5_6b62i")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

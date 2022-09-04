@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://bafiace4bleit"
 path="res://.godot/imported/pepSound4.ogg-a1c5c073cca32f2e426a3c743bc78bc9.oggvorbisstr"
 
@@ -14,3 +14,6 @@ dest_files=["res://.godot/imported/pepSound4.ogg-a1c5c073cca32f2e426a3c743bc78bc
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

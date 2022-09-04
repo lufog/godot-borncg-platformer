@@ -1,19 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://w78sbpe66fsl"]
+[gd_scene load_steps=12 format=3 uid="uid://w78sbpe66fsl"]
 
-[ext_resource type="FontData" uid="uid://bbgtj8wcth6sb" path="res://assets/fonts/KiriFont.ttf" id="1_oofai"]
+[ext_resource type="FontFile" uid="uid://bbgtj8wcth6sb" path="res://assets/fonts/KiriFont.ttf" id="1_oofai"]
 [ext_resource type="Texture2D" uid="uid://6fejsj8qe0v5" path="res://assets/UI/grey_button04.png" id="2_orcs5"]
-[ext_resource type="FontData" uid="uid://be4158fr16ybq" path="res://assets/fonts/BalsamiqSans-Bold.ttf" id="3_qpgxy"]
 [ext_resource type="Texture2D" uid="uid://r4b8i4pb502" path="res://assets/UI/grey_button13.png" id="4_lf8r4"]
 [ext_resource type="Texture2D" uid="uid://cch0tlqcrip35" path="res://assets/UI/arrow-UP.png" id="5_37xbh"]
-[ext_resource type="FontData" uid="uid://qut2uhimbc6c" path="res://assets/fonts/Sniglet-Regular.ttf" id="6_lbdr3"]
+[ext_resource type="FontFile" uid="uid://qut2uhimbc6c" path="res://assets/fonts/Sniglet-Regular.ttf" id="6_lbdr3"]
 [ext_resource type="Texture2D" uid="uid://co0xl0sp3faq3" path="res://assets/player/platformChar_idle.png" id="7_vbgpe"]
 [ext_resource type="Texture2D" uid="uid://dmtx7d0lwanay" path="res://assets/enemies/slime_crawl_2.png" id="8_r2ksf"]
 [ext_resource type="Texture2D" uid="uid://b3j7v11r50gfa" path="res://assets/coin/gold_1.png" id="9_c8j0w"]
 [ext_resource type="Script" path="res://play_button.gd" id="10_51w26"]
 [ext_resource type="AudioStream" uid="uid://fnp7yc52q75n" path="res://assets/music/Swinging Pants.ogg" id="11_yp18d"]
-
-[sub_resource type="Font" id="Font_56qvj"]
-data/0 = ExtResource("1_oofai")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7od8"]
 bg_color = Color(0.380392, 0.121569, 0.00784314, 0.113725)
@@ -22,22 +18,14 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Font" id="Font_wgqmp"]
-data/0 = ExtResource("3_qpgxy")
-
-[sub_resource type="Font" id="Font_lxbkb"]
-data/0 = ExtResource("3_qpgxy")
-data/1 = ExtResource("6_lbdr3")
-data/2 = ExtResource("3_qpgxy")
-
-[sub_resource type="Font" id="Font_pls14"]
-data/0 = ExtResource("1_oofai")
-
 [node name="TitleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -46,6 +34,7 @@ color = Color(0.14902, 0, 0.443137, 1)
 metadata/_edit_layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -281.0
@@ -56,12 +45,15 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.329412, 0.466667, 1, 1)
 theme_override_colors/font_outline_color = Color(0.913725, 0.8, 0.0509804, 1)
 theme_override_constants/outline_size = 16
-theme_override_fonts/font = SubResource("Font_56qvj")
+theme_override_fonts/font = ExtResource("1_oofai")
 theme_override_font_sizes/font_size = 70
 text = "Platformer!"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_layout_mode = 1
 
 [node name="LeftPanel" type="Panel" parent="."]
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 30.0
@@ -86,7 +78,6 @@ offset_top = 5.0
 offset_right = 88.0
 offset_bottom = 32.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("Font_wgqmp")
 theme_override_font_sizes/font_size = 20
 text = "SPACE"
 
@@ -95,7 +86,7 @@ offset_left = 123.0
 offset_top = 1.0
 offset_right = 210.0
 offset_bottom = 34.0
-theme_override_fonts/font = SubResource("Font_wgqmp")
+theme_override_fonts/font = ExtResource("6_lbdr3")
 theme_override_font_sizes/font_size = 24
 text = "= Jump!"
 
@@ -108,6 +99,7 @@ texture = ExtResource("4_lf8r4")
 ignore_texture_size = true
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel/TextureRect2"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -132,6 +124,7 @@ texture = ExtResource("4_lf8r4")
 ignore_texture_size = true
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel/TextureRect3"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -152,7 +145,7 @@ offset_left = 175.0
 offset_top = 119.0
 offset_right = 262.0
 offset_bottom = 152.0
-theme_override_fonts/font = SubResource("Font_wgqmp")
+theme_override_fonts/font = ExtResource("6_lbdr3")
 theme_override_font_sizes/font_size = 24
 text = "= Move!"
 
@@ -162,11 +155,11 @@ offset_top = 14.0
 offset_right = 132.0
 offset_bottom = 52.0
 theme_override_colors/font_color = Color(0.913725, 0.8, 0.0509804, 1)
-theme_override_fonts/font = SubResource("Font_lxbkb")
 theme_override_font_sizes/font_size = 28
 text = "Controls:"
 
 [node name="RightPanel" type="Panel" parent="."]
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -194,7 +187,7 @@ offset_left = 65.0
 offset_top = 21.0
 offset_right = 126.0
 offset_bottom = 54.0
-theme_override_fonts/font = SubResource("Font_wgqmp")
+theme_override_fonts/font = ExtResource("6_lbdr3")
 theme_override_font_sizes/font_size = 24
 text = "=You!"
 
@@ -211,7 +204,7 @@ stretch_mode = 4
 offset_left = 51.0
 offset_right = 112.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource("Font_wgqmp")
+theme_override_fonts/font = ExtResource("6_lbdr3")
 theme_override_font_sizes/font_size = 24
 text = "= Enemy!"
 
@@ -228,7 +221,7 @@ stretch_mode = 4
 offset_left = -109.0
 offset_right = -5.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource("Font_wgqmp")
+theme_override_fonts/font = ExtResource("6_lbdr3")
 theme_override_font_sizes/font_size = 24
 text = "Collect 3 "
 
@@ -236,7 +229,7 @@ text = "Collect 3 "
 offset_left = 37.0
 offset_right = 141.0
 offset_bottom = 33.0
-theme_override_fonts/font = SubResource("Font_wgqmp")
+theme_override_fonts/font = ExtResource("6_lbdr3")
 theme_override_font_sizes/font_size = 24
 text = "to win!"
 
@@ -246,20 +239,19 @@ offset_top = 14.0
 offset_right = 132.0
 offset_bottom = 52.0
 theme_override_colors/font_color = Color(0.913725, 0.8, 0.0509804, 1)
-theme_override_fonts/font = SubResource("Font_lxbkb")
 theme_override_font_sizes/font_size = 28
 text = "Items:"
 
 [node name="PlayButton" type="Button" parent="."]
-offset_left = 373.0
-offset_top = 265.0
-offset_right = 653.0
-offset_bottom = 338.0
+offset_left = 454.0
+offset_top = 282.0
+offset_right = 734.0
+offset_bottom = 355.0
 theme_override_colors/font_color = Color(0.478431, 1, 0.121569, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(1, 0.184314, 0.909804, 1)
 theme_override_colors/font_focus_color = Color(0.478431, 1, 0.121569, 1)
-theme_override_fonts/font = SubResource("Font_pls14")
+theme_override_fonts/font = ExtResource("1_oofai")
 theme_override_font_sizes/font_size = 40
 text = "Play!"
 flat = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfh1u4x0mkb8g"]
+[gd_scene load_steps=17 format=3 uid="uid://bfh1u4x0mkb8g"]
 
 [ext_resource type="Texture2D" uid="uid://d0ub3vj4r5p14" path="res://assets/background/set2_background.png" id="1_66evw"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_wh17r"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://hud.gd" id="2_fn5mu"]
 [ext_resource type="Texture2D" uid="uid://ohl1r6y3t1pk" path="res://assets/background/set2_tiles.png" id="2_j6rom"]
 [ext_resource type="PackedScene" uid="uid://c2fr5q4eockqd" path="res://steve.tscn" id="2_no5gs"]
-[ext_resource type="FontData" uid="uid://be4158fr16ybq" path="res://assets/fonts/BalsamiqSans-Bold.ttf" id="3_7ultg"]
+[ext_resource type="FontFile" uid="uid://qut2uhimbc6c" path="res://assets/fonts/Sniglet-Regular.ttf" id="4_yx0g2"]
 [ext_resource type="Texture2D" uid="uid://be4vvlptoyyup" path="res://assets/HUD/hud_heartFull.png" id="5_nyyfm"]
 [ext_resource type="Texture2D" uid="uid://wp3ptp340vx4" path="res://assets/HUD/hud_heartEmpty.png" id="6_7qkwg"]
 [ext_resource type="PackedScene" uid="uid://s8we4qv3vdi7" path="res://coin.tscn" id="6_x62qv"]
@@ -21,9 +21,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="Font" id="Font_8aaag"]
-data/0 = ExtResource("3_7ultg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf0lr"]
 size = Vector2(512, 64)
@@ -42,6 +39,7 @@ offset_bottom = 84.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_keheb")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 56.0
@@ -50,26 +48,29 @@ texture = ExtResource("2_b8sl0")
 ignore_texture_size = true
 
 [node name="Cross" type="Label" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 63.0
 offset_right = 77.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.960784, 0.792157, 0.235294, 1)
-theme_override_fonts/font = SubResource("Font_8aaag")
+theme_override_fonts/font = ExtResource("4_yx0g2")
 theme_override_font_sizes/font_size = 24
 text = "x"
 vertical_alignment = 1
 
 [node name="Coins" type="Label" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 83.0
 offset_right = 129.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.960784, 0.792157, 0.235294, 1)
-theme_override_fonts/font = SubResource("Font_8aaag")
+theme_override_fonts/font = ExtResource("4_yx0g2")
 theme_override_font_sizes/font_size = 40
 text = "99"
 vertical_alignment = 1
 
 [node name="HeartsEmpty" type="TextureRect" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 140.0
 offset_top = 12.0
 offset_right = 299.0
@@ -79,6 +80,7 @@ texture = ExtResource("6_7qkwg")
 stretch_mode = 1
 
 [node name="HeartsFull" type="TextureRect" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 140.0
 offset_top = 12.0
 offset_right = 193.0
@@ -155,7 +157,6 @@ position = Vector2(2272, 72)
 
 [node name="Steve" parent="." instance=ExtResource("2_no5gs")]
 position = Vector2(195, 474)
-collision_mask = 6
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Steve"]

@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	sprite.rotation += deg2rad(25) * direction
+	sprite.rotation += deg_to_rad(25) * direction
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta

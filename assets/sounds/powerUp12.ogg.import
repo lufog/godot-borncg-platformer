@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://t6jc54lnkdb6"
 path="res://.godot/imported/powerUp12.ogg-3e9d7c93922dd450d3cfabe6535d7197.oggvorbisstr"
 
@@ -14,3 +14,6 @@ dest_files=["res://.godot/imported/powerUp12.ogg-3e9d7c93922dd450d3cfabe6535d719
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

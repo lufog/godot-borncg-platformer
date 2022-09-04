@@ -8,9 +8,9 @@ var above_ladder := false
 
 func _physics_process(_delta: float) -> void:
 	if above_ladder and Input.is_action_pressed("down"):
-		collision_shape.rotation = deg2rad(180)
+		collision_shape.rotation = deg_to_rad(180)
 	elif not above_ladder:
-		collision_shape.rotation = deg2rad(0)
+		collision_shape.rotation = deg_to_rad(0)
 
 
 func _on_above_checker_body_entered(_body: Node2D) -> void:

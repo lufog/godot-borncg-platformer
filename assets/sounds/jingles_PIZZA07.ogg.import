@@ -1,7 +1,7 @@
 [remap]
 
 importer="oggvorbisstr"
-type="AudioStreamOGGVorbis"
+type="AudioStreamOggVorbis"
 uid="uid://bf5vvtkhdcbrn"
 path="res://.godot/imported/jingles_PIZZA07.ogg-0bd203f886f8ef1f1694edd9b91f3d39.oggvorbisstr"
 
@@ -14,3 +14,6 @@ dest_files=["res://.godot/imported/jingles_PIZZA07.ogg-0bd203f886f8ef1f1694edd9b
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

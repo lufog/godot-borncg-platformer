@@ -45,9 +45,9 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("jump")
 			if direction:
 				var decel = 0.1 if abs(velocity.x) < SPEED else 0.03
-				velocity.x = lerp(velocity.x, direction * SPEED, decel)
+				velocity.x = lerpf(velocity.x, direction * SPEED, decel)
 			else:
-				velocity.x = lerp(velocity.x, 0, 0.2)
+				velocity.x = lerpf(velocity.x, 0.0, 0.2)
 			
 			# Add the gravity.
 			velocity.y += gravity * delta
@@ -72,7 +72,7 @@ func _physics_process(delta: float) -> void:
 					velocity.x = lerp(velocity.x, direction * SPEED, 0.1)
 			else:
 				animated_sprite.play("idle")
-				velocity.x = lerp(velocity.x, 0, 0.2)
+				velocity.x = lerpf(velocity.x, 0.0, 0.2)
 			
 			# Handle Jump.
 			if Input.is_action_just_pressed("jump"):
@@ -119,7 +119,7 @@ func _physics_process(delta: float) -> void:
 			elif Input.is_action_pressed("move_right"):
 				velocity.x = SPEED / 6
 			else:
-				velocity.x = lerp(velocity.x, 0, 0.3)
+				velocity.x = lerpf(velocity.x, 0.0, 0.3)
 			
 			move_and_slide()
 		

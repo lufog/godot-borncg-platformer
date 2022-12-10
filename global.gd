@@ -14,4 +14,4 @@ func lose_life() -> void:
 	if lives <= 0:
 		lives = max_lives
 		hud.update_hearts()
-		tree.change_scene("res://game_over.tscn")
+		tree.change_scene_to_file("res://game_over.tscn")

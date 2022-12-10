@@ -20,7 +20,7 @@ func _on_coin_collected() -> void:
 	_update_coins(coins)
 	
 	if coins == 3:
-		tree.change_scene("res://you_win.tscn")
+		tree.change_scene_to_file("res://you_win.tscn")
 
 
 func update_hearts() -> void:

@@ -112,7 +112,7 @@ func _physics_process(delta: float) -> void:
 			elif Input.is_action_pressed("down"):
 				velocity.y = SPEED
 			else:
-				velocity.y = lerp(velocity.y, 0, 0.3)
+				velocity.y = lerpf(velocity.y, 0, 0.3)
 			
 			if Input.is_action_pressed("move_left"):
 				velocity.x = -SPEED / 6

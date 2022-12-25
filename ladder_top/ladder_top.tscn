@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://blljc0euclbpt"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://ladder_top.gd" id="1_isqc2"]
+[ext_resource type="Script" path="res://ladder_top/ladder_top.gd" id="1_isqc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fmcj"]
 size = Vector2(64, 16)

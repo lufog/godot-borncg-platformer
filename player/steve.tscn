@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2fr5q4eockqd"]
+[gd_scene load_steps=6 format=3]
 
-[ext_resource type="Script" path="res://steve.gd" id="1_cdp58"]
-[ext_resource type="SpriteFrames" uid="uid://rctfp2sa4hpb" path="res://steve_spriteframes.tres" id="2_015vo"]
+[ext_resource type="Script" path="res://player/steve.gd" id="1_cdp58"]
+[ext_resource type="SpriteFrames" uid="uid://rctfp2sa4hpb" path="res://player/steve_spriteframes.tres" id="2_015vo"]
 [ext_resource type="AudioStream" uid="uid://bsubtdof6nv0t" path="res://assets/sounds/jump1.ogg" id="3_ygi68"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oibr"]

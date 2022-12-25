@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbnjtj85wrh72"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dq5k8ip8dl38r" path="res://assets/projectiles/fireball.png" id="1_ac6sn"]
-[ext_resource type="Script" path="res://fireball.gd" id="1_krbm4"]
+[ext_resource type="Script" path="res://fireball/fireball.gd" id="1_krbm4"]
 [ext_resource type="AudioStream" uid="uid://cb5dcwvkx6u4y" path="res://assets/sounds/minimize_001.ogg" id="3_q05ga"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5nkq"]

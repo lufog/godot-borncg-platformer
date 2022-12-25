@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bt1bvknyymt7k"]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Texture2D" uid="uid://crm0uvb332emg" path="res://assets/enemies/slime_crawl_1.png" id="1_k4q10"]
-[ext_resource type="Script" path="res://enemy.gd" id="1_ojisx"]
+[ext_resource type="Script" path="res://enemy/enemy.gd" id="1_ojisx"]
 [ext_resource type="Texture2D" uid="uid://dmtx7d0lwanay" path="res://assets/enemies/slime_crawl_2.png" id="2_74als"]
 [ext_resource type="Texture2D" uid="uid://c62h6yal4map8" path="res://assets/enemies/slime_squashed.png" id="3_vdjpy"]
 [ext_resource type="AudioStream" uid="uid://perj6mlo60s7" path="res://assets/sounds/pepSound2.ogg" id="5_bon5w"]

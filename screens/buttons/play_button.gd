@@ -6,4 +6,4 @@ extends Button
 
 func _on_pressed() -> void:
 	Global.lives = Global.max_lives
-	tree.change_scene_to_file("res://level_1.tscn")
+	tree.change_scene_to_file("res://levels/level_1.tscn")

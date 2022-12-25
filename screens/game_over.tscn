@@ -1,43 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://p13a11waoslv"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://main_menu_button.gd" id="2_do6cc"]
+[ext_resource type="Script" path="res://screens/buttons/main_menu_button.gd" id="2_m7b6r"]
 
-[node name="YouWin" type="Control"]
+[node name="GameOver" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(0.0627451, 0.929412, 0.960784, 1)
+color = Color(0.290196, 0.027451, 0.027451, 1)
 
 [node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -196.0
+offset_left = -281.0
 offset_top = 110.0
-offset_right = 197.0
+offset_right = 281.0
 offset_bottom = 184.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 0.831373, 0.266667, 1)
-theme_override_colors/font_outline_color = Color(0.913725, 0.8, 0.0509804, 1)
+theme_override_colors/font_color = Color(0.780392, 0.101961, 0.0980392, 1)
+theme_override_colors/font_outline_color = Color(0.913725, 0.654902, 0.317647, 1)
 theme_override_constants/outline_size = 16
-theme_override_font_sizes/font_size = 80
-text = "You Win!"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 70
+text = "Game Over!"
 metadata/_edit_layout_mode = 1
 
 [node name="MainMenuButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 444.0
+offset_left = 373.0
 offset_top = 265.0
-offset_right = 724.0
+offset_right = 653.0
 offset_bottom = 338.0
 theme_override_colors/font_color = Color(1, 0.184314, 0.909804, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
@@ -46,6 +42,6 @@ theme_override_colors/font_focus_color = Color(1, 0.184314, 0.909804, 1)
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 flat = true
-script = ExtResource("2_do6cc")
+script = ExtResource("2_m7b6r")
 
 [connection signal="pressed" from="MainMenuButton" to="MainMenuButton" method="_on_pressed"]

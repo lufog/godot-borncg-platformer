@@ -14,7 +14,7 @@ var last_jump_direction := 0.0
 var on_ladder := false
 var hurt := 0
 var state := States.AIR
-var fireball_scene = preload("res://fireball.tscn") as PackedScene
+var fireball_scene = preload("res://fireball/fireball.tscn") as PackedScene
 
 @onready var animated_sprite := $AnimatedSprite as AnimatedSprite2D
 @onready var timer := $Timer as Timer

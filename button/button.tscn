@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://1lutoupp05ih"]
+
+[ext_resource type="Texture2D" uid="uid://db708nmog3pw5" path="res://assets/objects/button.png" id="1_gklp1"]
+[ext_resource type="Script" path="res://button/button.gd" id="1_l605d"]
+[ext_resource type="AudioStream" uid="uid://dmj180mbx1oyl" path="res://assets/sounds/switch23.ogg" id="3_83cyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dh4y"]
+atlas = ExtResource("1_gklp1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1trbw"]
+atlas = ExtResource("1_gklp1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o4vay"]
+animations = [{
+"frames": [SubResource("AtlasTexture_2dh4y")],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_1trbw")],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qltbf"]
+radius = 6.0
+height = 64.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0u8e"]
+radius = 2.0
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmo26"]
+size = Vector2(6, 5)
+
+[node name="Button" type="StaticBody2D"]
+collision_layer = 8
+script = ExtResource("1_l605d")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_o4vay")
+animation = &"up"
+offset = Vector2(0, -32)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_qltbf")
+
+[node name="CollisionTop" type="CollisionShape2D" parent="."]
+position = Vector2(0, -34)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_n0u8e")
+
+[node name="TopChecker" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Collision" type="CollisionShape2D" parent="TopChecker"]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_fmo26")
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_83cyr")
+
+[connection signal="body_entered" from="TopChecker" to="." method="_on_top_checker_body_entered" unbinds=1]
+[connection signal="body_exited" from="TopChecker" to="." method="_on_top_checker_body_exited" unbinds=1]

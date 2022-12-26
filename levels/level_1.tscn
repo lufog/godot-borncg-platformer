@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3]
+[gd_scene load_steps=19 format=3 uid="uid://be0vk5yvkbmt8"]
 
 [ext_resource type="Texture2D" uid="uid://d0ub3vj4r5p14" path="res://assets/background/set2_background.png" id="1_66evw"]
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_wh17r"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://wp3ptp340vx4" path="res://assets/HUD/hud_heartEmpty.png" id="6_7qkwg"]
 [ext_resource type="PackedScene" path="res://coin/coin.tscn" id="6_x62qv"]
 [ext_resource type="PackedScene" path="res://ladder_top/ladder_top.tscn" id="8_kq541"]
+[ext_resource type="PackedScene" uid="uid://1lutoupp05ih" path="res://button/button.tscn" id="10_djtjr"]
+[ext_resource type="Script" path="res://levels/tile_map.gd" id="10_uey2n"]
 [ext_resource type="PackedScene" path="res://enemy/enemy.tscn" id="10_wkcd1"]
 [ext_resource type="AudioStream" uid="uid://88smaf47h6ip" path="res://assets/music/Retro Beat.ogg" id="11_4b1t0"]
 
@@ -39,7 +41,6 @@ offset_bottom = 84.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_keheb")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/Panel"]
-layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 56.0
@@ -48,7 +49,6 @@ texture = ExtResource("2_b8sl0")
 ignore_texture_size = true
 
 [node name="Cross" type="Label" parent="HUD/Panel"]
-layout_mode = 0
 offset_left = 63.0
 offset_right = 77.0
 offset_bottom = 64.0
@@ -59,7 +59,6 @@ text = "x"
 vertical_alignment = 1
 
 [node name="Coins" type="Label" parent="HUD/Panel"]
-layout_mode = 0
 offset_left = 83.0
 offset_right = 129.0
 offset_bottom = 64.0
@@ -70,7 +69,6 @@ text = "99"
 vertical_alignment = 1
 
 [node name="HeartsEmpty" type="TextureRect" parent="HUD/Panel"]
-layout_mode = 0
 offset_left = 140.0
 offset_top = 12.0
 offset_right = 299.0
@@ -80,7 +78,6 @@ texture = ExtResource("6_7qkwg")
 stretch_mode = 1
 
 [node name="HeartsFull" type="TextureRect" parent="HUD/Panel"]
-layout_mode = 0
 offset_left = 140.0
 offset_top = 12.0
 offset_right = 193.0
@@ -148,7 +145,25 @@ layer_1/modulate = Color(1, 1, 1, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
-layer_1/tile_data = PackedInt32Array(131107, 1, 0, 196643, 1, 0, 262179, 1, 0, 327715, 1, 0, 393251, 1, 0, 458787, 1, 0, 524323, 1, 0, 65571, 2, 0)
+layer_1/tile_data = PackedInt32Array(131107, 1, 0, 196643, 1, 0, 262179, 1, 0, 327715, 1, 0, 393251, 1, 0, 458787, 1, 0, 524323, 1, 0, 65571, 65537, 0)
+layer_2/name = "gate_disabled"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(589844, 65538, 0, 589845, 65538, 0, 589846, 65538, 0, 589847, 65538, 0, 589848, 65538, 0, 589849, 65538, 0, 589850, 65538, 0, 589851, 65538, 0)
+layer_3/name = "gate_enabled"
+layer_3/enabled = false
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array(589844, 2, 0, 589845, 2, 0, 589846, 2, 0, 589847, 2, 0, 589848, 2, 0, 589849, 2, 0, 589850, 2, 0, 589851, 2, 0)
+script = ExtResource("10_uey2n")
+
+[node name="Button" parent="." instance=ExtResource("10_djtjr")]
+position = Vector2(992, 576)
 
 [node name="LadderTops" type="Node2D" parent="."]
 
@@ -156,7 +171,8 @@ layer_1/tile_data = PackedInt32Array(131107, 1, 0, 196643, 1, 0, 262179, 1, 0, 3
 position = Vector2(2272, 72)
 
 [node name="Steve" parent="." instance=ExtResource("2_no5gs")]
-position = Vector2(195, 474)
+position = Vector2(216, 512)
+collision_mask = 14
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Steve"]
@@ -166,8 +182,6 @@ limit_top = -500
 limit_right = 4000
 limit_bottom = 700
 limit_smoothed = true
-smoothing_enabled = true
-smoothing_speed = 12.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_left_margin = 0.1
@@ -207,6 +221,7 @@ detects_cliffs = false
 stream = ExtResource("11_4b1t0")
 autoplay = true
 
+[connection signal="button_pushed" from="Button" to="TileMap" method="_on_button_pushed"]
 [connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_body_entered"]
 [connection signal="coin_collected" from="Coins/Coin" to="HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="Coins/Coin2" to="HUD" method="_on_coin_collected"]

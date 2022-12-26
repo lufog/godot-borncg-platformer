@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmdpp2pmpm2ns"
-path="res://.godot/imported/ladder_mid.png-115e473f3b3dd4254afe6d6205e738f5.ctex"
+uid="uid://db708nmog3pw5"
+path="res://.godot/imported/button.png-cd4f7ea01d4fe0adc33cba29edfe37c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/ladder_mid.png"
-dest_files=["res://.godot/imported/ladder_mid.png-115e473f3b3dd4254afe6d6205e738f5.ctex"]
+source_file="res://assets/objects/button.png"
+dest_files=["res://.godot/imported/button.png-cd4f7ea01d4fe0adc33cba29edfe37c3.ctex"]
 
 [params]
 

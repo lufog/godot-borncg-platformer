@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://su20uq2s8mdg"]
+
+[ext_resource type="Script" path="res://key/key.gd" id="1_wbdm3"]
+[ext_resource type="Texture2D" uid="uid://ca4trfjtt0yj0" path="res://assets/objects/key_yellow.png" id="2_k8fep"]
+[ext_resource type="AudioStream" uid="uid://bum4hh4e5c0l7" path="res://assets/sounds/confirmation_002.ogg" id="3_i4f2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mktx6"]
+size = Vector2(54, 32)
+
+[node name="Key" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_wbdm3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_k8fep")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mktx6")
+
+[node name="CollectSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_i4f2k")
+volume_db = -15.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

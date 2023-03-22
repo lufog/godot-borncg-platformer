@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmtx7d0lwanay"
-path="res://.godot/imported/slime_crawl_2.png-5bd65352b76a004674b4866de66df4cd.ctex"
+uid="uid://45c1viq1b7y2"
+path="res://.godot/imported/doorLocked.png-215650e66954d48afabb1d90ee14df8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/slime_crawl_2.png"
-dest_files=["res://.godot/imported/slime_crawl_2.png-5bd65352b76a004674b4866de66df4cd.ctex"]
+source_file="res://assets/textures/doorLocked.png"
+dest_files=["res://.godot/imported/doorLocked.png-215650e66954d48afabb1d90ee14df8b.ctex"]
 
 [params]
 

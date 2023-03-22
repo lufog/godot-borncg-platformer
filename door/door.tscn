@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkm2f7xhxlgk3"]
+
+[ext_resource type="Script" path="res://door/door.gd" id="1_4tht5"]
+[ext_resource type="Texture2D" uid="uid://dl5ttugep2mna" path="res://assets/textures/doorClosed.png" id="1_rv7sr"]
+[ext_resource type="Texture2D" uid="uid://45c1viq1b7y2" path="res://assets/textures/doorLocked.png" id="2_3fsjv"]
+[ext_resource type="Texture2D" uid="uid://dcgvkx50n45rn" path="res://assets/textures/doorOpen.png" id="3_lnitg"]
+[ext_resource type="AudioStream" uid="uid://dgb53ksujs41c" path="res://assets/sounds/question_003.ogg" id="5_me05r"]
+[ext_resource type="AudioStream" uid="uid://cvolk520dmp7h" path="res://assets/sounds/pepSound1.ogg" id="6_vtokl"]
+[ext_resource type="AudioStream" uid="uid://j0ceasdenh4" path="res://assets/sounds/upgrade1.ogg" id="7_ehmwt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f3l57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rv7sr")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3fsjv")
+}],
+"loop": true,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lnitg")
+}],
+"loop": true,
+"name": &"opened",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sv38p"]
+size = Vector2(16, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_807lc"]
+size = Vector2(128, 136)
+
+[node name="Door" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_4tht5")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_f3l57")
+animation = &"locked"
+offset = Vector2(0, -100)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_sv38p")
+
+[node name="NearDoor" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Collision" type="CollisionShape2D" parent="NearDoor"]
+position = Vector2(0, -68)
+shape = SubResource("RectangleShape2D_807lc")
+
+[node name="TeleportTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="UnlockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_me05r")
+volume_db = -15.0
+
+[node name="LockedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vtokl")
+volume_db = -2.0
+
+[node name="TeleportSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ehmwt")
+volume_db = -15.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="NearDoor" to="." method="_on_near_door_body_entered"]
+[connection signal="timeout" from="TeleportTimer" to="." method="_on_teleport_timer_timeout"]

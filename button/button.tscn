@@ -14,12 +14,18 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o4vay"]
 animations = [{
-"frames": [SubResource("AtlasTexture_2dh4y")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dh4y")
+}],
 "loop": true,
 "name": &"down",
 "speed": 5.0
 }, {
-"frames": [SubResource("AtlasTexture_1trbw")],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1trbw")
+}],
 "loop": true,
 "name": &"up",
 "speed": 5.0
@@ -41,7 +47,7 @@ collision_layer = 8
 script = ExtResource("1_l605d")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-frames = SubResource("SpriteFrames_o4vay")
+sprite_frames = SubResource("SpriteFrames_o4vay")
 animation = &"up"
 offset = Vector2(0, -32)
 

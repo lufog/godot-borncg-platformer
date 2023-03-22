@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmtx7d0lwanay"
-path="res://.godot/imported/slime_crawl_2.png-5bd65352b76a004674b4866de66df4cd.ctex"
+uid="uid://i47civcaa6md"
+path="res://.godot/imported/key_yellow_empty.png-120ac14a12612d43b3baefb1798f5095.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/slime_crawl_2.png"
-dest_files=["res://.godot/imported/slime_crawl_2.png-5bd65352b76a004674b4866de66df4cd.ctex"]
+source_file="res://assets/HUD/key_yellow_empty.png"
+dest_files=["res://.godot/imported/key_yellow_empty.png-120ac14a12612d43b3baefb1798f5095.ctex"]
 
 [params]
 

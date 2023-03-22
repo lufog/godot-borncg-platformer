@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://dd134npsq8ooq"]
 
 [ext_resource type="FontFile" uid="uid://bbgtj8wcth6sb" path="res://assets/fonts/KiriFont.ttf" id="1_oofai"]
 [ext_resource type="Texture2D" uid="uid://6fejsj8qe0v5" path="res://assets/UI/grey_button04.png" id="2_orcs5"]
@@ -27,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,7 +37,7 @@ color = Color(0.14902, 0, 0.443137, 1)
 metadata/_edit_layout_mode = 1
 
 [node name="Label" type="Label" parent="."]
-anchors_preset = 5
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -281.0
@@ -55,7 +56,7 @@ vertical_alignment = 1
 metadata/_edit_layout_mode = 1
 
 [node name="LeftPanel" type="Panel" parent="."]
-anchors_preset = 2
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 30.0
@@ -67,14 +68,16 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_w7od8")
 metadata/_edit_layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel"]
+layout_mode = 0
 offset_left = 52.0
 offset_top = 63.0
 offset_right = 166.0
 offset_bottom = 97.0
 texture = ExtResource("2_orcs5")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="Label" type="Label" parent="LeftPanel/TextureRect"]
+layout_mode = 0
 offset_left = 25.0
 offset_top = 5.0
 offset_right = 88.0
@@ -84,6 +87,7 @@ theme_override_font_sizes/font_size = 20
 text = "SPACE"
 
 [node name="Label2" type="Label" parent="LeftPanel/TextureRect"]
+layout_mode = 0
 offset_left = 123.0
 offset_top = 1.0
 offset_right = 210.0
@@ -93,15 +97,16 @@ theme_override_font_sizes/font_size = 24
 text = "= Jump!"
 
 [node name="TextureRect2" type="TextureRect" parent="LeftPanel"]
+layout_mode = 0
 offset_left = 61.0
 offset_top = 118.0
 offset_right = 99.0
 offset_bottom = 153.0
 texture = ExtResource("4_lf8r4")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel/TextureRect2"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -114,19 +119,20 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = -1.5708
 texture = ExtResource("5_37xbh")
-ignore_texture_size = true
+expand_mode = 1
 metadata/_edit_layout_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="LeftPanel"]
+layout_mode = 0
 offset_left = 118.0
 offset_top = 118.0
 offset_right = 156.0
 offset_bottom = 153.0
 texture = ExtResource("4_lf8r4")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="LeftPanel/TextureRect3"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -139,10 +145,11 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 1.5708
 texture = ExtResource("5_37xbh")
-ignore_texture_size = true
+expand_mode = 1
 metadata/_edit_layout_mode = 1
 
 [node name="Label3" type="Label" parent="LeftPanel"]
+layout_mode = 0
 offset_left = 175.0
 offset_top = 119.0
 offset_right = 262.0
@@ -152,6 +159,7 @@ theme_override_font_sizes/font_size = 24
 text = "= Move!"
 
 [node name="Label2" type="Label" parent="LeftPanel"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 14.0
 offset_right = 132.0
@@ -161,7 +169,7 @@ theme_override_font_sizes/font_size = 28
 text = "Controls:"
 
 [node name="RightPanel" type="Panel" parent="."]
-anchors_preset = 3
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -176,15 +184,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_w7od8")
 metadata/_edit_layout_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="RightPanel"]
+layout_mode = 0
 offset_left = 13.0
 offset_top = 46.0
 offset_right = 70.0
 offset_bottom = 103.0
 texture = ExtResource("7_vbgpe")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="RightPanel/TextureRect"]
+layout_mode = 0
 offset_left = 65.0
 offset_top = 21.0
 offset_right = 126.0
@@ -194,15 +204,17 @@ theme_override_font_sizes/font_size = 24
 text = "=You!"
 
 [node name="TextureRect2" type="TextureRect" parent="RightPanel"]
+layout_mode = 0
 offset_left = 147.0
 offset_top = 68.0
 offset_right = 187.0
 offset_bottom = 94.0
 texture = ExtResource("8_r2ksf")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="RightPanel/TextureRect2"]
+layout_mode = 0
 offset_left = 51.0
 offset_right = 112.0
 offset_bottom = 33.0
@@ -211,15 +223,17 @@ theme_override_font_sizes/font_size = 24
 text = "= Enemy!"
 
 [node name="TextureRect3" type="TextureRect" parent="RightPanel"]
+layout_mode = 0
 offset_left = 154.0
 offset_top = 119.0
 offset_right = 181.0
 offset_bottom = 145.0
 texture = ExtResource("9_c8j0w")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 4
 
 [node name="Label" type="Label" parent="RightPanel/TextureRect3"]
+layout_mode = 0
 offset_left = -109.0
 offset_right = -5.0
 offset_bottom = 33.0
@@ -228,6 +242,7 @@ theme_override_font_sizes/font_size = 24
 text = "Collect 3 "
 
 [node name="Label2" type="Label" parent="RightPanel/TextureRect3"]
+layout_mode = 0
 offset_left = 37.0
 offset_right = 141.0
 offset_bottom = 33.0
@@ -236,6 +251,7 @@ theme_override_font_sizes/font_size = 24
 text = "to win!"
 
 [node name="Label2" type="Label" parent="RightPanel"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 14.0
 offset_right = 132.0
@@ -245,6 +261,7 @@ theme_override_font_sizes/font_size = 28
 text = "Items:"
 
 [node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 454.0
 offset_top = 282.0
 offset_right = 734.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://be0vk5yvkbmt8"]
+[gd_scene load_steps=22 format=3 uid="uid://c8om5y73q3kkx"]
 
 [ext_resource type="Texture2D" uid="uid://d0ub3vj4r5p14" path="res://assets/background/set2_background.png" id="1_66evw"]
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_wh17r"]
@@ -6,16 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://qdjsf1e6mptf" path="res://assets/HUD/coin_gold.png" id="2_b8sl0"]
 [ext_resource type="Script" path="res://hud.gd" id="2_fn5mu"]
 [ext_resource type="Texture2D" uid="uid://ohl1r6y3t1pk" path="res://assets/background/set2_tiles.png" id="2_j6rom"]
-[ext_resource type="PackedScene" path="res://player/steve.tscn" id="2_no5gs"]
+[ext_resource type="PackedScene" uid="uid://dgtvj6xqnwlv7" path="res://player/steve.tscn" id="2_no5gs"]
 [ext_resource type="FontFile" uid="uid://qut2uhimbc6c" path="res://assets/fonts/Sniglet-Regular.ttf" id="4_yx0g2"]
-[ext_resource type="Texture2D" uid="uid://be4vvlptoyyup" path="res://assets/HUD/hud_heartFull.png" id="5_nyyfm"]
-[ext_resource type="Texture2D" uid="uid://wp3ptp340vx4" path="res://assets/HUD/hud_heartEmpty.png" id="6_7qkwg"]
+[ext_resource type="Texture2D" uid="uid://i47civcaa6md" path="res://assets/HUD/key_yellow_empty.png" id="5_hbkdx"]
+[ext_resource type="Texture2D" uid="uid://wp3ptp340vx4" path="res://assets/HUD/hud_heart_empty.png" id="5_y2fuc"]
+[ext_resource type="Texture2D" uid="uid://be4vvlptoyyup" path="res://assets/HUD/hud_heart_full.png" id="6_pdiw8"]
 [ext_resource type="PackedScene" path="res://coin/coin.tscn" id="6_x62qv"]
 [ext_resource type="PackedScene" path="res://ladder_top/ladder_top.tscn" id="8_kq541"]
 [ext_resource type="PackedScene" uid="uid://1lutoupp05ih" path="res://button/button.tscn" id="10_djtjr"]
 [ext_resource type="Script" path="res://levels/tile_map.gd" id="10_uey2n"]
 [ext_resource type="PackedScene" path="res://enemy/enemy.tscn" id="10_wkcd1"]
 [ext_resource type="AudioStream" uid="uid://88smaf47h6ip" path="res://assets/music/Retro Beat.ogg" id="11_4b1t0"]
+[ext_resource type="PackedScene" uid="uid://bkm2f7xhxlgk3" path="res://door/door.tscn" id="16_a5sc4"]
+[ext_resource type="PackedScene" uid="uid://su20uq2s8mdg" path="res://key/key.tscn" id="17_6tisk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_keheb"]
 bg_color = Color(0, 0, 0, 0.443137)
@@ -36,19 +39,21 @@ script = ExtResource("2_fn5mu")
 [node name="Panel" type="Panel" parent="HUD"]
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 296.0
+offset_right = 344.0
 offset_bottom = 84.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_keheb")
 
 [node name="TextureRect" type="TextureRect" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 56.0
 offset_bottom = 56.0
 texture = ExtResource("2_b8sl0")
-ignore_texture_size = true
+expand_mode = 1
 
 [node name="Cross" type="Label" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 63.0
 offset_right = 77.0
 offset_bottom = 64.0
@@ -59,6 +64,7 @@ text = "x"
 vertical_alignment = 1
 
 [node name="Coins" type="Label" parent="HUD/Panel"]
+layout_mode = 0
 offset_left = 83.0
 offset_right = 129.0
 offset_bottom = 64.0
@@ -68,23 +74,34 @@ theme_override_font_sizes/font_size = 40
 text = "99"
 vertical_alignment = 1
 
+[node name="Key" type="TextureRect" parent="HUD/Panel"]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 2.0
+offset_right = 186.0
+offset_bottom = 59.0
+texture = ExtResource("5_hbkdx")
+expand_mode = 1
+
 [node name="HeartsEmpty" type="TextureRect" parent="HUD/Panel"]
-offset_left = 140.0
+layout_mode = 0
+offset_left = 188.0
 offset_top = 12.0
-offset_right = 299.0
+offset_right = 347.0
 offset_bottom = 57.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("6_7qkwg")
+texture = ExtResource("5_y2fuc")
 stretch_mode = 1
 
 [node name="HeartsFull" type="TextureRect" parent="HUD/Panel"]
-offset_left = 140.0
+layout_mode = 0
+offset_left = 188.0
 offset_top = 12.0
-offset_right = 193.0
+offset_right = 241.0
 offset_bottom = 57.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_nyyfm")
-ignore_texture_size = true
+texture = ExtResource("6_pdiw8")
+expand_mode = 1
 stretch_mode = 1
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -170,26 +187,6 @@ position = Vector2(992, 576)
 [node name="LadderTop" parent="LadderTops" instance=ExtResource("8_kq541")]
 position = Vector2(2272, 72)
 
-[node name="Steve" parent="." instance=ExtResource("2_no5gs")]
-position = Vector2(216, 512)
-collision_mask = 14
-metadata/_edit_group_ = true
-
-[node name="Camera2D" type="Camera2D" parent="Steve"]
-current = true
-limit_left = 0
-limit_top = -500
-limit_right = 4000
-limit_bottom = 700
-limit_smoothed = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.1
-drag_top_margin = 0.1
-drag_right_margin = 0.1
-drag_bottom_margin = 0.1
-editor_draw_limits = true
-
 [node name="FallZone" type="Area2D" parent="."]
 position = Vector2(1536, 736)
 collision_layer = 4
@@ -210,6 +207,37 @@ position = Vector2(640, 256)
 [node name="Coin3" parent="Coins" instance=ExtResource("6_x62qv")]
 position = Vector2(1280, 320)
 
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" node_paths=PackedStringArray("target_door", "hud") instance=ExtResource("16_a5sc4")]
+position = Vector2(1936, 576)
+target_door = NodePath("../Door2")
+hud = NodePath("../../HUD")
+
+[node name="Door2" parent="Doors" node_paths=PackedStringArray("target_door", "hud") instance=ExtResource("16_a5sc4")]
+position = Vector2(3392, 576)
+target_door = NodePath("../Door")
+hud = NodePath("../../HUD")
+
+[node name="Steve" parent="." instance=ExtResource("2_no5gs")]
+position = Vector2(592, 128)
+collision_mask = 14
+metadata/_edit_group_ = true
+
+[node name="Camera" type="Camera2D" parent="Steve"]
+limit_left = 0
+limit_top = -500
+limit_right = 4000
+limit_bottom = 700
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+editor_draw_limits = true
+
 [node name="Enemy" parent="." instance=ExtResource("10_wkcd1")]
 position = Vector2(736, 480)
 
@@ -220,6 +248,10 @@ detects_cliffs = false
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_4b1t0")
 autoplay = true
+
+[node name="Key" parent="." node_paths=PackedStringArray("hud") instance=ExtResource("17_6tisk")]
+position = Vector2(448, 64)
+hud = NodePath("../HUD")
 
 [connection signal="button_pushed" from="Button" to="TileMap" method="_on_button_pushed"]
 [connection signal="body_entered" from="FallZone" to="." method="_on_fall_zone_body_entered"]

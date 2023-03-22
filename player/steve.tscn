@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://dgtvj6xqnwlv7"]
 
 [ext_resource type="Script" path="res://player/steve.gd" id="1_cdp58"]
 [ext_resource type="SpriteFrames" uid="uid://rctfp2sa4hpb" path="res://player/steve_spriteframes.tres" id="2_015vo"]
@@ -17,7 +17,7 @@ script = ExtResource("1_cdp58")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
-frames = ExtResource("2_015vo")
+sprite_frames = ExtResource("2_015vo")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

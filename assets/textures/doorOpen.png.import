@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wp3ptp340vx4"
-path="res://.godot/imported/hud_heartEmpty.png-067e3df82b672536634e7132ef835c48.ctex"
+uid="uid://dcgvkx50n45rn"
+path="res://.godot/imported/doorOpen.png-67f9056d07b56ab7222cc9e14c74bdd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HUD/hud_heartEmpty.png"
-dest_files=["res://.godot/imported/hud_heartEmpty.png-067e3df82b672536634e7132ef835c48.ctex"]
+source_file="res://assets/textures/doorOpen.png"
+dest_files=["res://.godot/imported/doorOpen.png-67f9056d07b56ab7222cc9e14c74bdd8.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

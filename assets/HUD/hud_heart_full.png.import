@@ -3,22 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://be4vvlptoyyup"
-path="res://.godot/imported/hud_heartFull.png-b0502ccbdc8575377bc48ed2264a2195.ctex"
+path="res://.godot/imported/hud_heart_full.png-f24bd8a923fa5a0d03d3299cb68f6332.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/HUD/hud_heartFull.png"
-dest_files=["res://.godot/imported/hud_heartFull.png-b0502ccbdc8575377bc48ed2264a2195.ctex"]
+source_file="res://assets/HUD/hud_heart_full.png"
+dest_files=["res://.godot/imported/hud_heart_full.png-f24bd8a923fa5a0d03d3299cb68f6332.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

@@ -1,12 +1,19 @@
-extends CanvasLayer
+class_name Hud extends CanvasLayer
 
 
 var coins := 0
+var has_key := false:
+	get:
+		return has_key
+	set(value):
+		has_key = value
+		key.texture = load("res://assets/HUD/key_yellow.png" if has_key else "res://assets/HUD/key_yellow_empty.png")
 
 @onready var tree := get_tree()
-@onready var coins_ui := $Panel/Coins as Label
-@onready var hearts_empty := $Panel/HeartsEmpty as TextureRect
-@onready var hearts_full := $Panel/HeartsFull as TextureRect
+@onready var coins_ui: Label = $Panel/Coins
+@onready var key: TextureRect = $Panel/Key
+@onready var hearts_empty: TextureRect = $Panel/HeartsEmpty
+@onready var hearts_full: TextureRect = $Panel/HeartsFull
 
 
 func _ready() -> void:

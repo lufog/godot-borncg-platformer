@@ -1,7 +1,7 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 
-enum States { AIR = 1, FLOOR, LADDER, WALL }
+enum States { AIR = 1, FLOOR, LADDER, WALL, FROZEN }
 
 const SPEED = 300.0
 const RUN_SPEED = 600.0
@@ -34,13 +34,10 @@ func _physics_process(delta: float) -> void:
 		States.AIR:
 			if is_on_floor() and velocity.y == 0:
 				state = States.FLOOR
-				continue
 			elif _is_near_wall():
 				state = States.WALL
-				continue
 			elif _should_climb_ladder():
 				state = States.LADDER
-				continue
 			
 			animated_sprite.play("jump")
 			if direction:
@@ -57,10 +54,8 @@ func _physics_process(delta: float) -> void:
 		States.FLOOR:
 			if not is_on_floor():
 				state = States.AIR
-				continue
 			elif _should_climb_ladder():
 				state = States.LADDER
-				continue
 			
 			if direction:
 				animated_sprite.play("walk")
@@ -86,18 +81,15 @@ func _physics_process(delta: float) -> void:
 		States.LADDER:
 			if not on_ladder:
 				state = States.AIR
-				continue
 			elif is_on_floor() and Input.is_action_pressed("down") and velocity.y == 0:
 				state = States.FLOOR
 				Input.action_release("down")
-				continue
 			elif Input.is_action_just_pressed("jump"):
 				state = States.FLOOR
 				Input.action_release("up")
 				Input.action_release("down")
 				velocity.y = JUMP_VELOCITY * 0.7
 				state = States.AIR
-				continue
 			
 			if Input.is_action_pressed("up") \
 					or Input.is_action_pressed("down") \
@@ -127,10 +119,8 @@ func _physics_process(delta: float) -> void:
 			if is_on_floor():
 				last_jump_direction = 0
 				state = States.FLOOR
-				continue
 			elif not _is_near_wall():
 				state = States.AIR
-				continue
 			
 			animated_sprite.play("wall")
 			if facing_direction != last_jump_direction \
@@ -147,6 +137,9 @@ func _physics_process(delta: float) -> void:
 			velocity.y += gravity * delta
 			velocity.y = clamp(velocity.y, JUMP_VELOCITY, 200)
 			move_and_slide()
+		
+		States.FROZEN:
+			pass
 
 
 func _on_ladder_checker_body_entered(_body: Node2D) -> void:
